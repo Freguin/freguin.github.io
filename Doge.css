@@ -10,7 +10,7 @@
 	margin-top: 20px;
 	font-size: xx-large;
 	display: inline-block;
-	position: static;
+	position: absolute;
 	text-align: center;
 }
 #such {
@@ -20,7 +20,7 @@
 	margin-top: 46px;
 	color: #FFFFFF;
 	display: inline-block;
-	position: static;
+	position: absolute;
 }
 #so {
 	font-family: Comic Sans MS;
