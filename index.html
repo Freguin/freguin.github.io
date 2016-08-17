@@ -1,34 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <link rel='shortcut icon' href='favicon.ico?1234567' type='image/x-icon'/ >
-    <title>
-        WIP :D
-    </title>
-    <style>
-        
-h1 {
-animation-name: spin, color;
-animation-duration: 1s, 10s;
-animation-iteration-count: infinite, 1;
-animation-timing-function: ease, linear;
-animation-delay:0s, 0s;
-animation-direction:alternate, alternate;
+<style>
+@keyframes pump{
+0%{transform:scaleX(0.5) scaleY(0.5);}	
+100%{transform:scaleX(1.2) scaleY(1.2);}
+	}
+@keyframes spin{
+100%{transform:rotate(360deg);}	
 }
-@keyframes spin {
-100% {transform: rotate(360deg);}    
+div {
+	position:absolute;
+	font-size: 60px;
+	color: #FFFFFF;
+	font-family: Comic Sans MS;
+	animation-name: spin;
+	animation-duration: 0.7s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
 }
-@keyframes color {
-0%{color:white;}
-100% {color:black;}
+p {
+	animation-name:pump;
+	animation-duration:2.7s;
+	animation-iteration-count:infinite;
+	animation-direction:alternate;
+	animation-timing-function:ease;	
 }
-
-    </style>
+</style>
+<meta charset="utf-8">
+<title>Untitled Document</title>
 </head>
-<body>
-<center><h1 style="font-family:Comic Sans MS;
-    position: absolute;text-align:center;left:0px;right:0px;margin:270px auto auto auto;width:400px">
-work in progress :D
-</h1></center>
+<audio loop autoplay>
+  <source src="Nyan.mp3" type="audio/mpeg" />
+</audio>
+<body background="Nyan.jpg" style="background-size:cover">
+<div style="margin-top:30px;margin-left:275px;"><p>nyan</p></div>
+<div style="margin-left:1000px;margin-top:400px;"><p>nyan</p></div>
 </body>
 </html>
