@@ -1,5 +1,5 @@
 var main = function(){
-$('i').click(function()
+$('.icon').click(function()
 {
 $('.menu').animate({
 left: "0px"
