@@ -1,42 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-	<link rel='shortcut icon' href='favicon.ico?1234567' type='image/x-icon'/ >
-	<title>Nyan Cat</title>
-<style>
-@keyframes pump{
-0%{transform:scaleX(0.5) scaleY(0.5);}	
-100%{transform:scaleX(1.2) scaleY(1.2);}
-	}
-@keyframes spin{
-100%{transform:rotate(360deg);}	
-}
-div {
-	position:absolute;
-	font-size: 60px;
-	color: #FFFFFF;
-	font-family: Comic Sans MS;
-	animation-name: spin;
-	animation-duration: 0.7s;
-	animation-iteration-count:infinite;
-	animation-timing-function:linear;
-}
-p {
-	animation-name:pump;
-	animation-duration:2.7s;
-	animation-iteration-count:infinite;
-	animation-direction:alternate;
-	animation-timing-function:ease;	
-}
-</style>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>JQuery Test</title>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
-<audio loop autoplay>
-  <source src="Nyan.mp3" type="audio/mpeg" />
-</audio>
-<body background="Nyan.jpg" style="background-size:cover">
-<div style="margin-top:30px;margin-left:275px;"><p>nyan</p></div>
-<div style="margin-left:1000px;margin-top:400px;"><p>nyan</p></div>
+<body>
+<div class="body">
+<div class="icon">
+<i class="fa fa-bars fa-3x" style="color: white; cursor: pointer;"></i>
+</div>
+</div>
+<div class="menu">
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
