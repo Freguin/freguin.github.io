@@ -22,11 +22,14 @@ body {
 	width: 300px;
 	position: fixed;
 	left: -300px;
+	cursor: pointer;
 }
 .icon {
 	padding-top: 25px;
 	padding-right: 0px;
 	padding-left: 25px;
 	padding-bottom: 25px;
-	width: auto;
+	width: 75px;
+	cursor: pointer;
+	height: 40px;
 }
