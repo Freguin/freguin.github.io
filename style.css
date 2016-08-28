@@ -38,4 +38,12 @@ body {
           background-size: cover;
 }
     }
+.icon-close{
+width:80;
+height:80;
+cursor: pointer;
+background-image: url('http://www.iconsdb.com/icons/preview/white/x-mark-xxl.png');
+background-size:cover;
+margin-left:5px;
+}
 
