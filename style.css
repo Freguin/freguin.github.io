@@ -14,7 +14,6 @@ body {
 	width: 300px;
 	position: fixed;
 	left: -300px;
-	cursor: pointer;
 }
 .icon-menu {
 	top:5px;
