@@ -25,6 +25,7 @@ body {
 	cursor: pointer;
 	height: 40px;
 	background-image: url('http://naturallyimpressive.com/img/fa-bars.png');
+	background-size: cover;
 }
 .main-bod{
     background-image: url('http://wallpapercave.com/wp/U7rb02o.jpg');
@@ -35,8 +36,4 @@ body {
           background-size: cover;
 }
     }
-img {
-width:60px;
-height:50px;
-}
-}
+
