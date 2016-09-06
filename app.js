@@ -17,9 +17,5 @@ $('.icon-close').click(function() {
       left: "0px"
     }, 200);
   });
-$('.profile').click(function() {
-  $('.mainbod').removeClass('main-bod');
-  $('.mainbod').addClass('profile');
-  });
 };
 $(document).ready(main);
