@@ -1,6 +1,6 @@
 var main = function() {
-  $('.drawfee-logo').fadeIn(350).addClass('show').delay(850).fadeOut(350).removeClass('show');
-  $('.our-logo').delay(300).fadeIn(350).addClass('show').delay(850).fadeOut(350).removeClass('show');
+  $('.drawfee-logo').delay(1000).fadeIn(1200).addClass('show').delay(2000).fadeOut(1000).removeClass('show');
+  $('.our-logo').delay(800).fadeIn(1200).addClass('show').delay(2000).fadeOut(1000).removeClass('show');
   $('.main-body').delay(1500).addClass('show');
 };
 $(document).ready(main);
