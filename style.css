@@ -1,7 +1,9 @@
 @charset "utf-8";
 img {
 	padding-left:50vw;
+	padding-right:50vw;
 	padding-top:50vh;
+	padding-bottom:50vh;
 }
 .drawfee-logo {
 	position:relative;
