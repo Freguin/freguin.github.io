@@ -1,46 +1,9 @@
 @charset "utf-8";
-body {
-	background-size:cover;
-	left: 0;
-	position: relative;
-	margin: 0;
-	overflow: hidden;
-}
-.menu {
-	background-repeat: repeat;
-	background-position: left top;
-	background-image: url(http://wallpapers.ae/wp-content/uploads/2014/10/Black-Pattern-Background-Wallpaper.jpg);
-	height: 100%;
-	width: 300px;
-	position: fixed;
-	left: -300px;
-}
-.icon-menu {
-	top:5px;
-	margin-left: 5px;
-	padding-top: 25px;
-	padding-right: 0px;
-	padding-left: 25px;
-	padding-bottom: 25px;
-	width: 82px;
-	cursor: pointer;
-	height: 40px;
-	background-image: url('http://naturallyimpressive.com/img/fa-bars.png');
-	background-size: cover;
-}
-.main-bod{
-    background-image: url('http://wallpapercave.com/wp/U7rb02o.jpg');
-      height: 100vh;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-}
-    }
-.icon-close{
-width:80;
-height:80;
-cursor: pointer;
-margin-left:5px;
+img {
+	left:0px;
+	right:0px;
+	top:0px;
+	bottom:0px;
+	margin:50vh 50vh 50vh 50vh;
 }
 
