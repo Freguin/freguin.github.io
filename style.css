@@ -6,7 +6,10 @@
 	width:50vw;
 }
 .our-logo img {
-	
+	padding-top:30vh;
+	padding-left:30vw;
+	height:19.4vw;
+	width:40vw;
 }
 .drawfee-logo {
 	position:static;
@@ -15,7 +18,10 @@
 	width:100vw;
 }
 .our-logo {
-	
+	position:static;
+	display:none;
+	height:100vh;
+	width:100vw;
 }
 .show {
 	display:inline;
