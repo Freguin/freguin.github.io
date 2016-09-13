@@ -1,15 +1,21 @@
 @charset "utf-8";
-img {
+.drawfee-logo img {
 	padding-top:35.1875vh;
 	padding-left:25vw;
 	height:14.8125vw;
 	width:50vw;
+}
+.our-logo img {
+	
 }
 .drawfee-logo {
 	position:static;
 	display:none;
 	height:100vh;
 	width:100vw;
+}
+.our-logo {
+	
 }
 .show {
 	display:inline;
