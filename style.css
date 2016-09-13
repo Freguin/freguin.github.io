@@ -1,14 +1,4 @@
 @charset "utf-8";
-.drawfee-logo img {
-    height:14.8125vw;
-    width:50vw;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
 .our-logo img {
     position: absolute;
     margin: auto;
@@ -16,7 +6,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height:19.4vw;
+    height:40vw;
     width:40vw;
 }
 .drawfee-logo {
