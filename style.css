@@ -31,3 +31,8 @@ margin:0;
 .show {
 	display:inline;
 }
+.show-more {
+width:100vw;
+height:150px;
+background-color:#f9f9f9;
+}
