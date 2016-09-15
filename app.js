@@ -4,7 +4,7 @@ var main = function() {
  });
  $('.arrow').click(function() {
   $('.main-body').animate({
-   top:"-50vh";
+   top:"50vh";
   },400);
   $('.extra-info').animate({
    top:"0vh";
