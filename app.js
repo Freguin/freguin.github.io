@@ -4,10 +4,10 @@ var main = function() {
  });
  $('.arrow').click(function() {
   $('.main-body').animate({
-   "margin-bottom":"-50vh"
+   bottom:"-50vh"
   },400);
   $('.extra-info').animate({
-   "margin-top":"0vh"
+   top:"0vh"
   },400)
  });
 };
