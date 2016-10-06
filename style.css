@@ -1,6 +1,65 @@
 @charset "utf-8";
-body {
-margin:0;
-height:100vh;
-width:100vw;
+#many {
+	color: #FFFFFF;
+	font-style: normal;
+	font-weight: 400;
+	font-family: Comic Sans MS;
+	margin-left: 500px;
+	left: 0px;
+	right: 0px;
+	margin-top: 120px;
+	font-size: xx-large;
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+}
+#such {
+	font-family: Comic Sans MS;
+	font-size: x-large;
+	margin-left: 1150px;
+	margin-top: 80px;
+	color: #FFFFFF;
+	display: inline-block;
+	position: absolute;
+}
+#so {
+	font-family: Comic Sans MS;
+	font-size: 38px;
+	color: #FFFFFF;
+	left: 0px;
+	right: 0px;
+	margin-top: 26px;
+	margin-left: 550px;
+	margin-bottom: auto;
+	display: inline;
+	position: absolute;
+	width: 180px;
+	text-align: center;
+}
+#much {
+	margin-left: 100px;
+	left: 0px;
+	right: 0px;
+	color: #FFFFFF;
+	font-family: Comic Sans MS;
+	font-size: 60px;
+	margin-top: 150px;
+	display: block;
+	padding-top: 0px;
+	top: auto;
+	position: absolute;
+	margin-bottom: auto;
+	bottom: auto;
+	text-align: center;
+	padding-left: 0px;
+	width: 400px;
+}
+iframe {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	margin-top: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 70px;
 }
