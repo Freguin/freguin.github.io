@@ -6,7 +6,7 @@
 		<canvas id="canvas" width="500" height="500" ></canvas>
 		<script>
 			window.onload=function(){
-				c = document.getElementById("canvas").getContext("2d")
+				c = document.getElementById('canvas').getContext('2d')
 				setInterval(update,1000/30);
 				//c.addEventListener("mousemove",function(e){
 				//	p1y = e.clientY-paddleHeight/2;
@@ -25,7 +25,7 @@
 			p2y = 250-paddleHeight*0.5;
 			score1 = score2 = 0;
 			p1x = 15;
-			p2x = document.getElementById("canvas").getContext("2d").width-paddleWidth-15;
+			p2x = document.getElementById('canvas').getContext('2d').width-paddleWidth-15;
 			
 			function reset(){
 				ballX = ballY = c.width/2 - ballSide/2;
@@ -54,9 +54,9 @@
 				} else if(p2y+paddleHeight/2>ballY-0.25){
 					p2y-=paddle2Speed;
 				}
-				c.fillStyle="black";
+				c.fillStyle='black';
 				c.fillRect(0,0,c.width,c.height);
-				c.fillStyle="white";
+				c.fillStyle='white';
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(c.width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
 				c.fillRect(ballX,ballY,ballSide,ballSide);
