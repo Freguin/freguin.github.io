@@ -5,14 +5,48 @@
 	<body>
 		<canvas id="canvas" width="500" height="500" ></canvas>
 		<script>
-		var can = document.getElementById("canvas");
-		var c = can.getContext("2d");
-		var paddleHeight = 50;
-		var paddleWidth = 15;
-		var p1x = 15;
-		var p1y = 250-paddleHeight*0.5;
-		c.beginPath();
-		
+			ballSide = 8;
+			ballX = ballY = 250 - 0.5 * ballSide;
+			ballXV = ballYV = 4;
+			paddleHeight = 50;
+			paddleWidth = 15;
+			p1y = 250-paddleHeight*0.5;
+			p2y = 250-paddleHeight*0.5;
+			score1 = score2 = 0;
+			window.onload=function(){
+				var can = document.getElementById("canvas");
+				var c = can.getContext("2d");
+				setInterval(update,1000/30);
+			}
+			function reset(){
+				ballX = ballY = 250 - 0.5 * ballSide;
+				ballXV*=-1;
+			}
+			function update(){
+				ballX+=ballXV;
+				ballY+=ballYV;
+				if(ballX>=c.width || ballX<=0){
+					ballXV*=-1;
+				}
+				if(ballX<=15+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=15){
+					score1+=1;
+					reset();
+				}
+				if(ballX>=c.width-15-paddleWidth &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX<=c.width-15){
+					score2+=1;
+					reset();
+				}
+				if(ballY>=c.height || ballY<=0){
+					ballYV*=-1;
+				}
+				c.fillStyle="black";
+				c.fillRect(0,0,c.width,c.height);
+				c.fillStyle="white";
+				c.fillRect(15,p1y,paddleWidth,paddleHeight);
+				c.fillRect(c.width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
+				c.fillRect(ballX,ballY,ballSide,ballSide);
+				
+			}
 		</script>
 	</body>
 </html>
