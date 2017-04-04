@@ -8,7 +8,10 @@
 			window.onload=function(){
 				c = document.getElementById("canvas").getContext("2d")
 				setInterval(update,1000/30);
-				c.addEventListener("mousemove",function(e){
+				//c.addEventListener("mousemove",function(e){
+				//	p1y = e.clientY-paddleHeight/2;
+				//});
+				document.addEventListener('mousemove',function(e){
 					p1y = e.clientY-paddleHeight/2;
 				});
 			}
