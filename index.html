@@ -15,6 +15,8 @@
 					p1y = e.clientY-paddleHeight/2;
 				});
 			}
+			width = 500;
+			height = 500;
 			paddle2Speed = 4;
 			ballSide = 8;
 			ballX = ballY = 250 - 0.5 * ballSide;
@@ -25,16 +27,16 @@
 			p2y = 250-paddleHeight*0.5;
 			score1 = score2 = 0;
 			p1x = 15;
-			p2x = document.getElementById('canvas').getContext('2d').width-paddleWidth-15;
+			p2x = width-paddleWidth-15;
 			
 			function reset(){
-				ballX = ballY = c.width/2 - ballSide/2;
+				ballX = ballY = width/2 - ballSide/2;
 				ballXV*=-1;
 			}
 			function update(){
 				ballX+=ballXV;
 				ballY+=ballYV;
-				if(ballX>=c.width || ballX<=0){
+				if(ballX>=width || ballX<=0){
 					ballXV*=-1;
 				}
 				if(ballX<=p1x+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=p1x){
@@ -45,7 +47,7 @@
 					score2+=1;
 					reset();
 				}
-				if(ballY>=c.height || ballY<=0){
+				if(ballY>=height || ballY<=0){
 					ballYV*=-1;
 				}
 				
@@ -55,13 +57,13 @@
 					p2y-=paddle2Speed;
 				}
 				c.fillStyle='black';
-				c.fillRect(0,0,c.width,c.height);
+				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(c.width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
 				c.fillRect(ballX,ballY,ballSide,ballSide);
-				c.fillText(score1,c.width/4,15);
-				c.fillText(score2,c.width*3/4,15);
+				c.fillText(score1,width/4,15);
+				c.fillText(score2,width*3/4,15);
 			}
 		</script>
 	</body>
