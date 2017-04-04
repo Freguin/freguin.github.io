@@ -5,6 +5,7 @@
 	<body>
 		<canvas id="canvas" width="500" height="500" ></canvas>
 		<script>
+			paddle2Speed = 4;
 			ballSide = 8;
 			ballX = ballY = 250 - 0.5 * ballSide;
 			ballXV = ballYV = 4;
@@ -13,13 +14,16 @@
 			p1y = 250-paddleHeight*0.5;
 			p2y = 250-paddleHeight*0.5;
 			score1 = score2 = 0;
+			p1x = 15;
+			p2x = c.width-paddleWidth-15;
 			window.onload=function(){
 				var can = document.getElementById("canvas");
 				var c = can.getContext("2d");
 				setInterval(update,1000/30);
+				c.addEventListener('mousemove',function(x){p1y = e.clientY-paddleHeight/2;})
 			}
 			function reset(){
-				ballX = ballY = 250 - 0.5 * ballSide;
+				ballX = ballY = c.width/2 - ballSide/2;
 				ballXV*=-1;
 			}
 			function update(){
@@ -28,16 +32,22 @@
 				if(ballX>=c.width || ballX<=0){
 					ballXV*=-1;
 				}
-				if(ballX<=15+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=15){
+				if(ballX<=p1x+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=p1x){
 					score1+=1;
 					reset();
 				}
-				if(ballX>=c.width-15-paddleWidth &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX<=c.width-15){
+				if(ballX>=p2x &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX<=p2x+paddleWidth){
 					score2+=1;
 					reset();
 				}
 				if(ballY>=c.height || ballY<=0){
 					ballYV*=-1;
+				}
+				
+				if(p2y+paddleHeight/2<ballY+0.25){
+					p2y+=paddle2Speed;
+				} else if(p2y+paddleHeight/2>ballY-0.25){
+					p2y-=paddle2Speed;
 				}
 				c.fillStyle="black";
 				c.fillRect(0,0,c.width,c.height);
@@ -45,7 +55,8 @@
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(c.width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
 				c.fillRect(ballX,ballY,ballSide,ballSide);
-				
+				c.fillText(score1,c.width/4,15);
+				c.fillText(score2,c.width*3/4,15);
 			}
 		</script>
 	</body>
