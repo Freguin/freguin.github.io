@@ -5,6 +5,13 @@
 	<body>
 		<canvas id="canvas" width="500" height="500" ></canvas>
 		<script>
+			window.onload=function(){
+				var can = document.getElementById("canvas");
+				var c = can.getContext("2d");
+				setInterval(update,1000/30);
+				c.addEventListener('mousemove',function(x){p1y = e.clientY-paddleHeight/2;});
+			}
+			
 			paddle2Speed = 4;
 			ballSide = 8;
 			ballX = ballY = 250 - 0.5 * ballSide;
@@ -16,12 +23,7 @@
 			score1 = score2 = 0;
 			p1x = 15;
 			p2x = c.width-paddleWidth-15;
-			window.onload=function(){
-				var can = document.getElementById("canvas");
-				var c = can.getContext("2d");
-				setInterval(update,1000/30);
-				c.addEventListener('mousemove',function(x){p1y = e.clientY-paddleHeight/2;})
-			}
+			
 			function reset(){
 				ballX = ballY = c.width/2 - ballSide/2;
 				ballXV*=-1;
