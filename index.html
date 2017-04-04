@@ -6,8 +6,8 @@
 		<canvas id="canvas" width="500" height="500" ></canvas>
 		<script>
 			window.onload=function(){
-				var can = document.getElementById("canvas");
-				var c = can.getContext("2d");
+				can = document.getElementById("canvas");
+				c = can.getContext("2d");
 				setInterval(update,1000/30);
 				c.addEventListener('mousemove',function(x){p1y = e.clientY-paddleHeight/2;});
 			}
