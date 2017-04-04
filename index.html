@@ -11,7 +11,8 @@
 				setInterval(update,1000/30);
 				document.getElementById("canvas").getContext("2d").addEventListener('mousemove',function(){
 					p1y = clientY-paddleHeight/2;
-				});	
+				});
+			}
 			paddle2Speed = 4;
 			ballSide = 8;
 			ballX = ballY = 250 - 0.5 * ballSide;
