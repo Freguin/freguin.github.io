@@ -9,7 +9,8 @@
 				can = document.getElementById("canvas"); //document.getElementById("canvas").getContext("2d")
 				c = can.getContext("2d");
 				setInterval(update,1000/30);
-				document.getElementById("canvas").getContext("2d").addEventListener('mousemove',function(x){p1y = e.clientY-paddleHeight/2;});
+				document.getElementById("canvas").getContext("2d").addEventListener('mousemove',function(x){
+					p1y = x.clientY-paddleHeight/2;});
 			}	
 			paddle2Speed = 4;
 			ballSide = 8;
