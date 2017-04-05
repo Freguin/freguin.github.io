@@ -50,11 +50,11 @@
 				}
 				if(ballX<=p1x+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=p1x){
 					ballXV*=-1;
-					ballYV=(ballY-(p1y+0.5*paddleHeight))/2.5;
+					ballYV=(ballY-(p1y+0.5*paddleHeight))/1.5;
 				}
 				if(ballX+ballSide>=p2x &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX+ballSide<=p2x+paddleWidth){
 					ballXV*=-1;
-					ballYV=(ballY-(p2y+0.5*paddleHeight))/2.5;
+					ballYV=(ballY-(p2y+0.5*paddleHeight))/1.5;
 				}
 				if(ballY+ballSide>=height || ballY<=0){
 					ballYV*=-1;
