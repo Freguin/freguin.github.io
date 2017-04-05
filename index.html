@@ -46,7 +46,7 @@
 					score2++
 					reset();
 				}
-				if((ballX<=p1x+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=p1x) || (ballX>=p2x &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX<=p2x+paddleWidth)){
+				if((ballX<=p1x+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=p1x) || (ballX+ballSide>=p2x &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX+ballSide<=p2x+paddleWidth)){
 					ballXV*=-1;
 				}
 				if(ballY>=height || ballY<=0){
