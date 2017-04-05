@@ -14,7 +14,7 @@
 				//	p1y = e.clientY-paddleHeight/2;
 				//});
 				document.addEventListener('mousemove',function(e){
-					p1y = e.clientY-paddleHeight/2;
+					p1y = e.clientY-paddleHeight*0.5;
 				});
 			}
 			width = document.body.clientWidth;
@@ -22,7 +22,7 @@
 			paddle2Speed = 4;
 			ballSide = 8;
 			ballX = ballY = 250 - 0.5 * ballSide;
-			ballXV = ballYV = 4;
+			ballXV = ballYV = 16;
 			paddleHeight = 50;
 			paddleWidth = 15;
 			p1y = 250-paddleHeight*0.5;
@@ -32,8 +32,8 @@
 			p2x = width-paddleWidth-15;
 			
 			function reset(){
-				ballX = width/2 - ballSide/2;
-				ballY = height/2 + ballSide/2;
+				ballX = width*0.5 - ballSide*0.5;
+				ballY = height*0.5 + ballSide*0.5;
 				
 				ballXV*=-1;
 			}
