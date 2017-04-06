@@ -82,7 +82,7 @@
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
 				c.beginPath();
-				c.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+				c.arc(ballX,ballY, ballRad, 0, 2 * Math.PI, false);
 				c.fill()
 				c.strokeStyle = '#ffffff';
 				c.stroke();
