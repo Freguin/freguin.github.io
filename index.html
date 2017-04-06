@@ -33,7 +33,11 @@
 			function reset(){
 				ballX = width*0.5 - ballRad*0.5;
 				ballY = height*0.5 + ballRad*0.5;
-				ballXV*=-1;
+				if(ballXV>0){
+					ballXV = -4;
+				} else {
+					ballXV = 4;	
+				}
 			}
 			function update(){
 				ballX+=ballXV;
