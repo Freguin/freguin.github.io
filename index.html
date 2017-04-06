@@ -52,6 +52,7 @@
 				}
 				if(ballX-(p1x+paddleWidth)<=ballRad && ballY-p1y>=ballRad && ballY-(p1y+paddleHeight)<=ballRad && p1x-ballX<=ballRad){
 					if((ballXV*p1y-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*p1y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth+ballRad) || (ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX<=ballRad+p1x+paddleWidth)){
+						ballY = ballY-ballYV;
 						ballYV*=-1;
 					   } 
 					else {
