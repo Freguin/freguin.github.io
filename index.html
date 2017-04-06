@@ -30,7 +30,7 @@
 			score1 = score2 = 0;
 			p1x = 15;
 			p2x = width-paddleWidth-15;
-			
+			hits = [];
 			function reset(){
 				ballX = width*0.5 - ballRad*0.5;
 				ballY = height*0.5 + ballRad*0.5;
@@ -48,7 +48,7 @@
 					reset();
 				}
 				if(ballX-(p1x+paddleWidth)<=ballRad && p1y-ballY<=ballRad && (p1y+paddleHeight)-ballY<=ballRad && p1x-ballX<=ballRad){
-					console.log("hit p1");
+					hits.push(ballY);
 					if((ballXV*p1y-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*p1y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth+ballRad) || (ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX<=ballRad+p1x+paddleWidth)){
 						ballYV*=-1;
 					   } 
@@ -88,6 +88,9 @@
 				c.stroke();
 				for(i=0;i<=height;i+=60){
 					c.fillRect(width/2,i,10,30);
+				}
+				for(i=0;i<hits.length;i++){
+					c.fillRect(15+paddleWidth,hits[i],ballRad*2,ballRad*2);
 				}
 				c.font = "50px Arial Black"
 				c.fillText(score1,width/4,55);
