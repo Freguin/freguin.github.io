@@ -20,8 +20,8 @@
 			width = document.body.clientWidth;
 			height = document.body.clientHeight;
 			paddle2Speed = 4;
-			ballSide = 8;
-			ballX = ballY = 250 - 0.5 * ballSide;
+			ballRad = 4;
+			ballX = ballY = 250 - 0.5 * ballRad;
 			ballXV = ballYV = 8;
 			paddleHeight = height/7;
 			paddleWidth = 15;
@@ -32,31 +32,41 @@
 			p2x = width-paddleWidth-15;
 			
 			function reset(){
-				ballX = width*0.5 - ballSide*0.5;
-				ballY = height*0.5 + ballSide*0.5;
+				ballX = width*0.5 - ballRad*0.5;
+				ballY = height*0.5 + ballRad*0.5;
 				
 				ballXV*=-1;
 			}
 			function update(){
 				ballX+=ballXV;
 				ballY+=ballYV;
-				if(ballX>=width){
+				if(width-ballX<=ballRad){
 					score1++;
 					reset();
 				}
-				if(ballX<=0){
+				if(ballX<=ballRad){
 					score2++
 					reset();
 				}
-				if(ballX<=p1x+paddleWidth &&  ballY>=p1y && ballY<=p1y+paddleHeight && ballX>=p1x){
-					ballXV*=-1;
-					ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
+				if(ballX-(p1x+paddleWidth)<=ballRad && ballY-p1y<=ballRad && ballY-(p1y+paddleHeight)<=ballRad && p1x-ballX<=ballRad){
+					if(ballXV*y-ballY*ballXV/ballYV+ballX>=p1x && ballXV*y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth){
+						ballYV*=-1;
+					   } 
+					else {
+					   	ballXV*=-1;
+						ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
+					   }
 				}
-				if(ballX+ballSide>=p2x &&  ballY>=p2y && ballY<=p2y+paddleHeight && ballX+ballSide<=p2x+paddleWidth){
-					ballXV*=-1;
-					ballYV=((ballY-(p2y+0.5*paddleHeight))/1.5+ballYV)/2;
+				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y<=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
+					if(ballXV*y-ballY*ballXV/ballYV+ballX>=p2x && ballXV*y-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth){
+						ballYV*=-1;
+					   } 
+					else {
+					   	ballXV*=-1;
+						ballYV=((ballY-(p2y+0.5*paddleHeight))/1.5+ballYV)/2;
+					   }
 				}
-				if(ballY+ballSide>=height || ballY<=0){
+				if(ballY+ballRad>=height || ballY<=0){
 					ballYV*=-1;
 				}
 				
@@ -70,7 +80,7 @@
 				c.fillStyle='white';
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
-				c.fillRect(ballX,ballY,ballSide,ballSide);
+				c.arc(ballX, ballY, ballRad, 0, 2 * Math.PI, false);
 				for(i=0;i<=height;i+=60){
 					c.fillRect(width/2,i,10,30);
 				}
