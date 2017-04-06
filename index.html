@@ -80,7 +80,8 @@
 				c.fillStyle='white';
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
-				c.arc(ballX, ballY, ballRad, 0, 2 * Math.PI, false);
+				c.fillRect(ballX,ballY,ballRad*2,ballRad*2)
+				//c.arc(ballX, ballY, ballRad, 0, 2 * Math.PI, false);
 				for(i=0;i<=height;i+=60){
 					c.fillRect(width/2,i,10,30);
 				}
