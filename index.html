@@ -22,7 +22,7 @@
 			paddle2Speed = 4;
 			ballRad = 4;
 			ballX = ballY = 250 - 0.5 * ballRad;
-			ballXV = ballYV = 8;
+			ballXV = ballYV = 2;
 			paddleHeight = height/7;
 			paddleWidth = 15;
 			p1y = 250-paddleHeight*0.5;
@@ -34,7 +34,6 @@
 			function reset(){
 				ballX = width*0.5 - ballRad*0.5;
 				ballY = height*0.5 + ballRad*0.5;
-				
 				ballXV*=-1;
 			}
 			function update(){
@@ -55,7 +54,7 @@
 					   } 
 					else {
 					   	ballXV*=-1;
-						ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
+						//ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
 					   }
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y<=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
@@ -65,7 +64,7 @@
 					   } 
 					else {
 					   	ballXV*=-1;
-						ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
+						//ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
 					   }
 				}
 				if(ballY+ballRad>=height || ballY<=0){
