@@ -49,7 +49,7 @@
 					reset();
 				}
 				if(ballX-(p1x+paddleWidth)<=ballRad && ballY-p1y<=ballRad && ballY-(p1y+paddleHeight)<=ballRad && p1x-ballX<=ballRad){
-					if(ballXV*y-ballY*ballXV/ballYV+ballX>=p1x && ballXV*y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth){
+					if((ballXV*p1y-ballY*ballXV/ballYV+ballX>=p1x && ballXV*p1y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth) || (ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p1x && ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth)){
 						ballYV*=-1;
 					   } 
 					else {
@@ -58,12 +58,12 @@
 					   }
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y<=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
-					if(ballXV*y-ballY*ballXV/ballYV+ballX>=p2x && ballXV*y-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth){
+					if((ballXV*p2y-ballY*ballXV/ballYV+ballX>=p2x && ballXV*p2y-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth) || (ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p2x && ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth)){
 						ballYV*=-1;
 					   } 
 					else {
 					   	ballXV*=-1;
-						ballYV=((ballY-(p2y+0.5*paddleHeight))/1.5+ballYV)/2;
+						ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
 					   }
 				}
 				if(ballY+ballRad>=height || ballY<=0){
