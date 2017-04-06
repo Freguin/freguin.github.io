@@ -1,6 +1,15 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<style type="text/css">
+			@font-face {
+			    font-family: "pixel";
+			    src:  local("Pixeled.ttf");
+			}
+			p.customfont { 
+			    font-family: "My Custom Font", Verdana, Tahoma;
+			}
+</style>
 	</head>
 	<body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
 		<canvas id="canvas" width="500" height="500" ></canvas>
@@ -98,7 +107,7 @@
 				for(i=0;i<=height;i+=60){
 					c.fillRect(width/2,i,10,30);
 				}
-				c.font = "50px Arial Black"
+				c.font = "pixel"
 				c.fillText(score1,width/4,55);
 				c.fillText(score2,width*3/4,55);
 			}
