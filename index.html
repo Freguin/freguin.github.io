@@ -49,7 +49,8 @@
 					reset();
 				}
 				if(ballX-(p1x+paddleWidth)<=ballRad && ballY-p1y<=ballRad && ballY-(p1y+paddleHeight)<=ballRad && p1x-ballX<=ballRad){
-					if((ballXV*p1y-ballY*ballXV/ballYV+ballX>=p1x && ballXV*p1y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth) || (ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p1x && ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth)){
+					console.log("hit p1");
+					if((ballXV*p1y-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*p1y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth+ballRad) || (ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX<=ballRad+p1x+paddleWidth)){
 						ballYV*=-1;
 					   } 
 					else {
@@ -58,7 +59,8 @@
 					   }
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y<=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
-					if((ballXV*p2y-ballY*ballXV/ballYV+ballX>=p2x && ballXV*p2y-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth) || (ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p2x && ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth)){
+					console.log("hit p2");
+					if((ballXV*p2y-ballY*ballXV/ballYV+ballX>=p2x-ballRad && ballXV*p2y-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth+ballRad) || (ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p2x-ballRad && ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX<=ballRad+p2x+paddleWidth)){
 						ballYV*=-1;
 					   } 
 					else {
