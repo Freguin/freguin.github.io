@@ -47,7 +47,7 @@
 					score2++
 					reset();
 				}
-				if(ballX-(p1x+paddleWidth)<=ballRad && p1y-ballY<=ballRad && (p1y+paddleHeight)-ballY<=ballRad && p1x-ballX<=ballRad){
+				if(ballX-(p1x+paddleWidth)<=ballRad && ballY-p1y>=ballRad && ballY-(p1y+paddleHeight)>=ballRad && p1x-ballX<=ballRad){
 					hits.push(ballY);
 					if((ballXV*p1y-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*p1y-ballY*ballXV/ballYV+ballX<=p1x+paddleWidth+ballRad) || (ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p1x-ballRad && ballXV*(p1y+paddleHeight)-ballY*ballXV/ballYV+ballX<=ballRad+p1x+paddleWidth)){
 						ballYV*=-1;
@@ -57,7 +57,7 @@
 						//ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
 					   }
 				}
-				if(ballX-(p2x+paddleWidth)<=ballRad && p2y-ballY<=ballRad && (p2y+paddleHeight)-ballY<=ballRad && p2x-ballX<=ballRad){
+				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)>=ballRad && p2x-ballX<=ballRad){
 					console.log("hit p2");
 					if((ballXV*p2y-ballY*ballXV/ballYV+ballX>=p2x-ballRad && ballXV*p2y-ballY*ballXV/ballYV+ballX<=p2x+paddleWidth+ballRad) || (ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX>=p2x-ballRad && ballXV*(p2y+paddleHeight)-ballY*ballXV/ballYV+ballX<=ballRad+p2x+paddleWidth)){
 						ballYV*=-1;
