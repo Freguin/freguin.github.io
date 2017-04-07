@@ -37,6 +37,8 @@
 			score1 = score2 = 0;
 			p1x = 15;
 			p2x = width-paddleWidth-15;
+			moving = false;
+			moveTo;
 			
 			function reset(){
 				ballX = width*0.5;
@@ -49,7 +51,44 @@
 			}
 			
 			function paddleAI(){
-			 //forgot to do this :D
+			x1=(((ballXV*ballRad)-(ballXV*ballY))/ballYV)+ballX;
+			x2=(((ballXV*(height-ballRad))-(ballXV*ballY))/ballYV)+ballX;
+			y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+				function hitsX(xv,yv,x,y){
+					x1=(((xv*ballRad)-(yv*y))/yv)+x;
+					x2=(((xv*(height-ballRad))-(xv*y))/yv)+x;
+					y1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;
+			 		if(x1<=width-paddleWidth-15-ballRad){
+						hitsX(ballXV,-ballYV,x1,ballRad);
+					}
+					else-if(x2<=width-paddleWidth-15-ballRad){
+						hitsX(ballXV,-ballYV,x2,height-ballRad);
+					}
+					else {
+						moveTo = y1;
+						moving = true;
+					}
+				}
+			
+			function move(to){
+				aispeed = 10;
+				if((p2y+0.5*paddleHeight)-to>aispeed){
+					p2y-=aispeed;
+				}
+				else-if(to-(p2y+0.5*paddleHeight)>aispeed){
+					p2y+=aispeed;
+				}
+			}
+			if(x1<=width-paddleWidth-15-ballRad){
+				hitsX(ballXV,-ballYV,x1,ballRad);
+			}
+			else-if(x2<=width-paddleWidth-15-ballRad){
+				hitsX(ballXV,-ballYV,x2,height-ballRad);
+			}
+			else {
+				moveTo = y1;
+				moving = true;
+			}
 			}
 			function update(){
 				ballX+=ballXV;
@@ -75,7 +114,7 @@
 					   }
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
-					y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+					y = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 					if(y>=p2y-ballRad && y<=p2y+paddleHeight+ballRad) {
 					   	ballXV*=-1;
 						ballYV=((ballY-(p2y+0.5*paddleHeight))/1.5+ballYV)/2;
@@ -84,11 +123,14 @@
 					   	ballY = ballY-ballYV;
 						ballYV*=-1;
 					   }
+					paddleAI();
 				}
 				if(ballY+ballRad>=height || ballY<=0){
 					ballYV*=-1;
 				}
-				
+				if(moving){
+					move(moveTo);
+				}
 				c.fillStyle='black';
 				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
