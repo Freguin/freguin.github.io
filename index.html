@@ -30,7 +30,8 @@
 			height = document.body.clientHeight;
 			paddle2Speed = 4;
 			ballRad = 4;
-			ballX = ballY = width * 0.5;
+			ballX = width * 0.5;
+			ballY = height * 0.5;
 			ballXV = ballYV = 8;
 			paddleHeight = height/7;
 			paddleWidth = 15;
@@ -40,8 +41,8 @@
 			p1x = 15;
 			p2x = width-paddleWidth-15;
 			function reset(){
-				ballX = width*0.5 - ballRad*0.5;
-				ballY = height*0.5 + ballRad*0.5;
+				ballX = width*0.5;
+				ballY = height*0.5;
 				if(ballXV>0){
 					ballXV = -4;
 				} else {
