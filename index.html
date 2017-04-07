@@ -37,6 +37,7 @@
 			score1 = score2 = 0;
 			p1x = 15;
 			p2x = width-paddleWidth-15;
+			
 			function reset(){
 				ballX = width*0.5;
 				ballY = height*0.5;
@@ -46,9 +47,14 @@
 					ballXV = 4;	
 				}
 			}
+			
+			function paddleAI(){
+			 //forgot to do this :D
+			}
 			function update(){
 				ballX+=ballXV;
 				ballY+=ballYV;
+				paddleAI()
 				if(width-ballX<=ballRad){
 					score1++;
 					reset();
@@ -69,6 +75,7 @@
 					   }
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
+					y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 					if(y>=p2y-ballRad && y<=p2y+paddleHeight+ballRad) {
 					   	ballXV*=-1;
 						ballYV=((ballY-(p2y+0.5*paddleHeight))/1.5+ballYV)/2;
@@ -82,11 +89,6 @@
 					ballYV*=-1;
 				}
 				
-				if(p2y+paddleHeight/2<ballY+0.25){
-					p2y+=paddle2Speed;
-				} else if(p2y+paddleHeight/2>ballY-0.25){
-					p2y-=paddle2Speed;
-				}
 				c.fillStyle='black';
 				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
