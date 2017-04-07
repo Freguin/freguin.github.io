@@ -64,13 +64,16 @@
 					y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 					x1 = ballXV*(p1y-ballRad)-ballY*ballXV/ballYV+ballX;
 					x2 = ballXV*(p1y+paddleHeight+ballRad)-ballY*ballXV/ballYV+ballX;
+					console.log("hit");
 					if((x1>=p1x-ballRad && x1<=p1x+paddleWidth+ballRad) || (x2>=p1x-ballRad && x2<=ballRad+p1x+paddleWidth)){
 						ballY = ballY-ballYV;
 						ballYV*=-1;
+						console.log("hit top/bottom");
 					   } 
 					if(y>=p1y-ballRad && y<=p1y+paddleHeight+ballRad) {
 					   	ballXV*=-1;
 						ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
+						console.log("hit front");
 					   }
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
