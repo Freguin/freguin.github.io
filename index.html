@@ -75,14 +75,14 @@
 				if((p2y+0.5*paddleHeight)-to>aispeed){
 					p2y-=aispeed;
 				}
-				else-if(to-(p2y+0.5*paddleHeight)>aispeed){
+				else if(to-(p2y+0.5*paddleHeight)>aispeed){
 					p2y+=aispeed;
 				}
 			}
 			if(x1<=width-paddleWidth-15-ballRad){
 				hitsX(ballXV,-ballYV,x1,ballRad);
 			}
-			else-if(x2<=width-paddleWidth-15-ballRad){
+			else if(x2<=width-paddleWidth-15-ballRad){
 				hitsX(ballXV,-ballYV,x2,height-ballRad);
 			}
 			else {
