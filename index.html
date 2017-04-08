@@ -63,11 +63,11 @@
 			function paddleAI(){
 				x1=(ballX*(ballYV/ballXV)-ballY+ballRad)/(ballYV/ballXV);
 				x2=(ballX*(ballYV/ballXV)-ballY+(height-ballRad))/(ballYV/ballXV);
-				y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY; //correct
+				y1 = ballYV*(p2x)/ballXV-ballYV*ballX/ballXV+ballY; //correct
 				function hitsX(xv,yv,x,y){
 					hx1=(x*(yv/xv)-y+ballRad)/(yv/xv);
 					hx2=(x*(yv/xv)-y+(height-ballRad))/(yv/xv);
-					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;				
+					hy1 = yv*(p2x)/xv-yv*x/xv+y;				
 					if(hx1<=width-paddleWidth-15-ballRad && hx1 > x){
 						hitsX(xv,yv*-1,hx1,ballRad);
 					}
@@ -75,7 +75,7 @@
 						hitsX(xv,yv*-1,hx2,height-ballRad);
 					}
 					else {
-						moveTo = yv*(p2x-ballRad)/xv-yv*x/xv+y;
+						moveTo = hy1;
 						moving = true;
 					}
 				}
@@ -86,7 +86,7 @@
 				hitsX(ballXV,ballYV*-1,x2,height-ballRad);
 			}
 			else {
-				moveTo = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+				moveTo = y1;
 				moving = true;
 			}
 			}
