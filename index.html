@@ -49,7 +49,7 @@
 					paddleAI();
 				}
 			}
-			
+			reset();
 			function move(to){
 				aispeed = 5;
 				if((p2y+0.5*paddleHeight)-to>aispeed){
@@ -101,36 +101,35 @@
 					score2++
 					reset();
 				}
-				if(ballX-(p1x+paddleWidth)<=ballRad && ballY-p1y>=ballRad && ballY-(p1y+paddleHeight)<=ballRad && p1x-ballX<=ballRad){
-					y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
-					xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
-					xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
-					if((xTop>=p1x && xTop <= p1x+paddleWidth) || (xBottom>=p1x && xBottom <=p1x+paddleWidth)) {
-					   ballYV*=-1;
-					   ballY+=ballYV;
-					   ballX+=ballXV;
-					   }
-					else {
-					   ballXV*=-1.3;
-					   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.5;
-				           paddleAI();
-					   }
-					   }
-				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
-					y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
-					xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
-					xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
-					if((xTop>=p2x && xTop <= p2x+paddleWidth) || (xBottom>=p2x && xBottom <=p2x+paddleWidth)) {
-					   ballYV*=-1;
-					   ballY+=ballYV;
-					   ballX+=ballXV;
-					   }
-					else {
-					   ballXV*=-1.15;
-					   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.5;
-					   }
-					moving = false;
-				}
+				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
+				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
+				if(((xTop>=p1x && xTop <= p1x+paddleWidth) || (xBottom>=p1x && xBottom <=p1x+paddleWidth)) && ballX >=p1x && ballX <=p1x+paddleWidth) {
+				   ballYV*=-1;
+				   ballY+=ballYV;
+				   ballX+=ballXV;
+				   }
+				y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+				if(y>=p1y && y<=p1y+paddleHeight) {
+				   ballXV*=-1.3;
+				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.5;
+				   paddleAI();
+				   }
+				
+				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
+				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
+				if((xTop>=p2x && xTop <= p2x+paddleWidth) || (xBottom>=p2x && xBottom <=p2x+paddleWidth)) {
+				   ballYV*=-1;
+				   ballY+=ballYV;
+				   ballX+=ballXV;
+				   moving = false;
+				   }
+				y = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+				if(y>=p2y && y<=p2y+paddleHeight) {
+				   ballXV*=-1.15;
+				   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.5;
+				   moving = false;
+				   }
+	
 				if(height-ballY<=ballRad || ballY<=ballRad){
 					ballYV*=-1;
 				}
