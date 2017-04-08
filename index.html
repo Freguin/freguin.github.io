@@ -108,6 +108,7 @@
 					if(y>=p1y-ballRad && y<=p1y+paddleHeight+ballRad) {
 					   	ballXV*=-1;
 						ballYV=((ballY-(p1y+0.5*paddleHeight))/1.5+ballYV)/2;
+						paddleAI();
 					   } 
 					else {
 					   	ballY = ballY-ballYV;
@@ -128,9 +129,6 @@
 				}
 				if(ballY+ballRad>=height || ballY<=0){
 					ballYV*=-1;
-				}
-				if(ballXV>0){
-					paddleAI();
 				}
 				if(moving){
 					move(moveTo);
