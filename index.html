@@ -12,18 +12,6 @@
 		<script>
 			width = document.body.clientWidth;
 			height = document.body.clientHeight;
-			window.onload=function(){
-				document.getElementById('canvas').width = width;
-				document.getElementById('canvas').height = height;
-				c = document.getElementById('canvas').getContext('2d')
-				setInterval(update,1000/30);
-				//c.addEventListener("mousemove",function(e){
-				//	p1y = e.clientY-paddleHeight/2;
-				//});
-				document.addEventListener('mousemove',function(e){
-					p1y = e.clientY-paddleHeight*0.5;
-				});
-			}
 			paddle2Speed = 4;
 			ballRad = 4;
 			ballX = width*0.5;
@@ -151,6 +139,15 @@
 				c.font = "42px Pixelated"
 				c.fillText(score1,width/4,70);
 				c.fillText(score2,width*3/4,70);
+			}
+			window.onload=function(){
+				document.getElementById('canvas').width = width;
+				document.getElementById('canvas').height = height;
+				c = document.getElementById('canvas').getContext('2d')
+				setInterval(update,1000/30);
+				document.addEventListener('mousemove',function(e){
+					p1y = e.clientY-paddleHeight*0.5;
+				});
 			}
 		</script>
 	
