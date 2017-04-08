@@ -67,17 +67,17 @@
 				x2=(ballX*(ballYV/ballXV)-ballY+(height-ballRad))/(ballYV/ballXV);
 				y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY; //correct
 				function hitsX(xv,yv,x,y){
-					x1=(((xv*ballRad)-(yv*y))/yv)+x;
-					x2=(((xv*(height-ballRad))-(xv*y))/yv)+x;
-					y1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;
-			 		if(x1<=width-paddleWidth-15-ballRad && x1 >= ballX){
-						hitsX(ballXV,-ballYV,x1,ballRad);
+					hx1=(ballX*(ballYV/ballXV)-ballY+ballRad)/(ballYV/ballXV);
+					hx2=(ballX*(ballYV/ballXV)-ballY+(height-ballRad))/(ballYV/ballXV);
+					hy1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+			 		if(hx1<=width-paddleWidth-15-ballRad && hx1 >= ballX){
+						hitsX(ballXV,-ballYV,hx1,ballRad);
 					}
-					else if(x2<=width-paddleWidth-15-ballRad && x2 >= ballX){
-						hitsX(ballXV,-ballYV,x2,height-ballRad);
+					else if(hx2<=width-paddleWidth-15-ballRad && hx2 >= ballX){
+						hitsX(ballXV,-ballYV,hx2,height-ballRad);
 					}
 					else {
-						moveTo = y1;
+						moveTo = hy1;
 						moving = true;
 					}
 				}
