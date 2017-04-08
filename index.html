@@ -51,9 +51,9 @@
 			}
 			
 			function paddleAI(){
-			x1=(((ballXV*ballRad)-(ballXV*ballY))/ballYV)+ballX;
-			x2=(((ballXV*(height-ballRad))-(ballXV*ballY))/ballYV)+ballX;
-			y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+				x1=(((ballXV*ballRad)-(ballXV*ballY))/ballYV)+ballX;
+				x2=(((ballXV*(height-ballRad))-(ballXV*ballY))/ballYV)+ballX;
+				y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 				function hitsX(xv,yv,x,y){
 					x1=(((xv*ballRad)-(yv*y))/yv)+x;
 					x2=(((xv*(height-ballRad))-(xv*y))/yv)+x;
@@ -123,7 +123,7 @@
 					   	ballY = ballY-ballYV;
 						ballYV*=-1;
 					   }
-					paddleAI();
+					//paddleAI();
 				}
 				if(ballY+ballRad>=height || ballY<=0){
 					ballYV*=-1;
