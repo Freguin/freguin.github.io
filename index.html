@@ -107,6 +107,8 @@
 					xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
 					if((xTop>=p1x && xTop <= p1x+paddleWidth) || (xBottom>=p1x && xBottom <=p1x+paddleWidth)) {
 					   ballYV*=-1;
+					   ballY+=ballYV;
+					   ballX+=ballXV;
 					   }
 					else {
 					   ballXV*=-1.3;
@@ -120,6 +122,8 @@
 					xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
 					if((xTop>=p2x && xTop <= p2x+paddleWidth) || (xBottom>=p2x && xBottom <=p2x+paddleWidth)) {
 					   ballYV*=-1;
+					   ballY+=ballYV;
+					   ballX+=ballXV;
 					   }
 					else {
 					   ballXV*=-1.15;
