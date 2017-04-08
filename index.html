@@ -116,11 +116,10 @@
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
 					y = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 					if(y>=p2y-ballRad && y<=p2y+paddleHeight+ballRad) {
-					   	ballXV*=-1;
+					   	ballXV*=-1.1;
 						ballYV=((ballY-(p2y+0.5*paddleHeight))/1.5+ballYV)/2;
 					   }
 					else {
-					   	ballY = ballY-ballYV;
 						ballYV*=-1;
 					   }
 					moving = false;
