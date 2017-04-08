@@ -54,7 +54,9 @@
 				x1=(((ballXV*ballRad)-(ballXV*ballY))/ballYV)+ballX;
 				x2=(((ballXV*(height-ballRad))-(ballXV*ballY))/ballYV)+ballX;
 				y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
+				console.log("(paddleAI) x1: "x1 + ", x2: " + x2 + ", y1: " + y1);
 				function hitsX(xv,yv,x,y){
+					console.log("(hitsX) x1: "x1 + ", x2: " + x2 + ", y1: " + y1);
 					x1=(((xv*ballRad)-(yv*y))/yv)+x;
 					x2=(((xv*(height-ballRad))-(xv*y))/yv)+x;
 					y1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;
