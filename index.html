@@ -29,9 +29,9 @@
 			}
 			paddle2Speed = 4;
 			ballRad = 4;
-			ballX = width * 0.5;
-			ballY = height * 0.5;
-			ballXV = ballYV = 8;
+			ballX = 34;
+			ballY = 250;
+			ballXV = ballYV = 0.01;
 			paddleHeight = height/7;
 			paddleWidth = 15;
 			p1y = 250-paddleHeight*0.5;
@@ -70,11 +70,12 @@
 					hx1=(x*(yv/xv)-y+ballRad)/(yv/xv);
 					hx2=(x*(yv/xv)-y+(height-ballRad))/(yv/xv);
 					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;
+					console.log(hx1 + "" + hx2 + "" + hy1)'
 			 		if(hx1<=width-paddleWidth-15-ballRad && hx1 >= ballX){
-						hitsX(ballXV,-ballYV,hx1,ballRad);
+						hitsX(ballXV,ballYV*-1,hx1,ballRad);
 					}
 					else if(hx2<=width-paddleWidth-15-ballRad && hx2 >= ballX){
-						hitsX(ballXV,-ballYV,hx2,height-ballRad);
+						hitsX(ballXV,ballYV*-1,hx2,height-ballRad);
 					}
 					else {
 						moveTo = hy1;
@@ -82,12 +83,13 @@
 					}
 				}
 			if(x1<=width-paddleWidth-15-ballRad && x1 >= ballX){
-				hitsX(ballXV,-ballYV,x1,ballRad);
+				hitsX(ballXV,ballYV*-1,x1,ballRad);
 			}
 			else if(x2<=width-paddleWidth-15-ballRad){
-				hitsX(ballXV,-ballYV,x2,height-ballRad && x2 >= ballX);
+				hitsX(ballXV,ballYV*-1,x2,height-ballRad);
 			}
 			else {
+				console.log(y1 + "     " + moveTo);
 				moveTo = y1;
 				moving = true;
 			}
