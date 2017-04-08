@@ -11,9 +11,13 @@
 	<body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
 		<canvas id="canvas" width="500" height="500" ></canvas>
 		<script>
+			/*width = document.body.clientWidth;
+			height = document.body.clientHeight;*/
+			width = 500;
+			height = 500;
 			window.onload=function(){
-				document.getElementById('canvas').width = document.body.clientWidth;
-				document.getElementById('canvas').height = document.body.clientHeight;
+				document.getElementById('canvas').width = width;
+				document.getElementById('canvas').height = height;
 				c = document.getElementById('canvas').getContext('2d')
 				setInterval(update,1000/30);
 				//c.addEventListener("mousemove",function(e){
@@ -23,8 +27,6 @@
 					p1y = e.clientY-paddleHeight*0.5;
 				});
 			}
-			width = document.body.clientWidth;
-			height = document.body.clientHeight;
 			paddle2Speed = 4;
 			ballRad = 4;
 			ballX = width * 0.5;
