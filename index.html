@@ -1,5 +1,4 @@
-<html>
-	<head>
+<html><head>
 		<meta charset="UTF-8">
 		<style>
 		@font-face {
@@ -9,12 +8,10 @@
 		</style>
 	</head>
 	<body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
-		<canvas id="canvas" width="500" height="500" ></canvas>
+		<canvas id="canvas" width="500" height="500"></canvas>
 		<script>
-			/*width = document.body.clientWidth;
-			height = document.body.clientHeight;*/
-			width = 500;
-			height = 500;
+			width = document.body.clientWidth;
+			height = document.body.clientHeight;
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
@@ -29,13 +26,13 @@
 			}
 			paddle2Speed = 4;
 			ballRad = 4;
-			ballX = 34;
-			ballY = 250;
-			ballXV = ballYV = 0.01;
+			ballX = width*0.5;
+			ballY = height*0.5;
+			ballXV = ballYV = 8;
 			paddleHeight = height/7;
 			paddleWidth = 15;
-			p1y = 250-paddleHeight*0.5;
-			p2y = 250-paddleHeight*0.5;
+			p1y = 0.5*height-paddleHeight*0.5;
+			p2y = 0.5*height-paddleHeight*0.5;
 			score1 = score2 = 0;
 			p1x = 15;
 			p2x = width-paddleWidth-15;
@@ -69,16 +66,15 @@
 				function hitsX(xv,yv,x,y){
 					hx1=(x*(yv/xv)-y+ballRad)/(yv/xv);
 					hx2=(x*(yv/xv)-y+(height-ballRad))/(yv/xv);
-					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;
-					console.log(hx1 + "" + hx2 + "" + hy1)'
-			 		if(hx1<=width-paddleWidth-15-ballRad && hx1 >= ballX){
-						hitsX(ballXV,ballYV*-1,hx1,ballRad);
+					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;				
+					if(hx1<=width-paddleWidth-15-ballRad && hx1 > x){
+						hitsX(xv,yv*-1,hx1,ballRad);
 					}
-					else if(hx2<=width-paddleWidth-15-ballRad && hx2 >= ballX){
-						hitsX(ballXV,ballYV*-1,hx2,height-ballRad);
+					else if(hx2<=width-paddleWidth-15-ballRad && hx2 > x){
+						hitsX(xv,yv*-1,hx2,height-ballRad);
 					}
 					else {
-						moveTo = hy1;
+						moveTo = yv*(p2x-ballRad)/xv-yv*x/xv+y;
 						moving = true;
 					}
 				}
@@ -89,8 +85,7 @@
 				hitsX(ballXV,ballYV*-1,x2,height-ballRad);
 			}
 			else {
-				console.log(y1 + "     " + moveTo);
-				moveTo = y1;
+				moveTo = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 				moving = true;
 			}
 			}
@@ -146,12 +141,13 @@
 				c.strokeStyle = '#ffffff';
 				c.stroke();
 				for(i=0;i<=height;i+=60){
-					c.fillRect(width/2,i,10,30);
+				c.fillRect(width/2,i,10,30);
 				}
 				c.font = "42px Pixelated"
 				c.fillText(score1,width/4,70);
 				c.fillText(score2,width*3/4,70);
 			}
 		</script>
-	</body>
-</html>
+	
+
+</body></html>
