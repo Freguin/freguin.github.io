@@ -125,7 +125,7 @@
 					   }
 					moving = false;
 				}
-				if(ballY+ballRad>=height || ballY<=0){
+				if(height-ballY<=ballRad || ballY<=ballRad){
 					ballYV*=-1;
 				}
 				if(moving){
