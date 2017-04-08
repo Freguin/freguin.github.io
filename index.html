@@ -93,7 +93,6 @@
 			function update(){
 				ballX+=ballXV;
 				ballY+=ballYV;
-				paddleAI()
 				if(width-ballX<=ballRad){
 					score1++;
 					reset();
@@ -123,7 +122,7 @@
 					   	ballY = ballY-ballYV;
 						ballYV*=-1;
 					   }
-					//paddleAI();
+					paddleAI();
 				}
 				if(ballY+ballRad>=height || ballY<=0){
 					ballYV*=-1;
