@@ -47,6 +47,7 @@
 				} else {
 					ballXV = 4;	
 				}
+				paddleAI();
 			}
 			
 			function move(to){
@@ -78,10 +79,10 @@
 						moving = true;
 					}
 				}
-			if(x1<=width-paddleWidth-15-ballRad && x1 >= ballX){
+			if(x1<=width-paddleWidth-15-ballRad && x1 > ballX){
 				hitsX(ballXV,ballYV*-1,x1,ballRad);
 			}
-			else if(x2<=width-paddleWidth-15-ballRad){
+			else if(x2<=width-paddleWidth-15-ballRad && x2 > ballX){
 				hitsX(ballXV,ballYV*-1,x2,height-ballRad);
 			}
 			else {
