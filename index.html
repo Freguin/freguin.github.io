@@ -50,6 +50,16 @@
 				}
 			}
 			
+			function move(to){
+				aispeed = 10;
+				if((p2y+0.5*paddleHeight)-to>aispeed){
+					p2y-=aispeed;
+				}
+				else if(to-(p2y+0.5*paddleHeight)>aispeed){
+					p2y+=aispeed;
+				}
+			}
+			
 			function paddleAI(){
 				x1=(((ballXV*ballRad)-(ballXV*ballY))/ballYV)+ballX;
 				x2=(((ballXV*(height-ballRad))-(ballXV*ballY))/ballYV)+ballX;
@@ -71,16 +81,6 @@
 						moving = true;
 					}
 				}
-			
-			function move(to){
-				aispeed = 10;
-				if((p2y+0.5*paddleHeight)-to>aispeed){
-					p2y-=aispeed;
-				}
-				else if(to-(p2y+0.5*paddleHeight)>aispeed){
-					p2y+=aispeed;
-				}
-			}
 			if(x1<=width-paddleWidth-15-ballRad){
 				hitsX(ballXV,-ballYV,x1,ballRad);
 			}
