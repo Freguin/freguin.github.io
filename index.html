@@ -111,6 +111,7 @@
 					   	ballY = ballY-ballYV;
 						ballYV*=-1;
 					   }
+					paddleAI();
 				}
 				if(ballX-(p2x+paddleWidth)<=ballRad && ballY-p2y>=ballRad && ballY-(p2y+paddleHeight)<=ballRad && p2x-ballX<=ballRad){
 					y = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
@@ -122,7 +123,7 @@
 					   	ballY = ballY-ballYV;
 						ballYV*=-1;
 					   }
-					paddleAI();
+					moving = false;
 				}
 				if(ballY+ballRad>=height || ballY<=0){
 					ballYV*=-1;
