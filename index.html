@@ -12,6 +12,7 @@
 		<script>
 			width = document.body.clientWidth;
 			height = document.body.clientHeight;
+			frameRate = 1000/30;
 			paddle2Speed = 4;
 			ballRad = 4;
 			ballX = width*0.5;
@@ -26,6 +27,7 @@
 			p2x = width-paddleWidth-15;
 			moving = false;
 			moveTo;
+			aispeed = 10;
 			
 			function reset(){
 				ballX = width*0.5;
@@ -39,7 +41,6 @@
 			}
 			reset();
 			function move(to){
-				aispeed = 5;
 				if((p2y+0.5*paddleHeight)-to>aispeed){
 					p2y-=aispeed;
 				}
@@ -123,6 +124,12 @@
 				if(moving){
 					move(moveTo);
 				}
+				if(ballXV>5 || ballYV>5){
+					ballXV*=0.2;
+					ballYV*=0.2;
+					aispeed*=0.2;
+					frameRate*=5
+				}
 				c.fillStyle='black';
 				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
@@ -144,7 +151,7 @@
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
 				c = document.getElementById('canvas').getContext('2d')
-				setInterval(update,1000/30);
+				setInterval(update,frameRate);
 				document.addEventListener('mousemove',function(e){
 					p1y = e.clientY-paddleHeight*0.5;
 				});
