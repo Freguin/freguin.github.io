@@ -122,9 +122,11 @@
 				   }
 				if(ballY<=ballRad){
 					ballY = ballRad-ballY;
+					ballYV*=-1;
 				}
 				else if(height-ballY<=ballRad) {
 					ballY = height - (ballY-height+ballRad);
+					ballYV*=-1;
 				}
 				if(moving){
 					move(moveTo);
