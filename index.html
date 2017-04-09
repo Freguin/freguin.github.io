@@ -59,19 +59,18 @@
 					console.log("went to hitsX");
 					hx1=(x*(yv/xv)-y+ballRad)/(yv/xv);
 					hx2=(x*(yv/xv)-y+(height-ballRad))/(yv/xv);
-					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;				
-					if(hx1<=width-paddleWidth-15-ballRad && hx1 > x){
-						console.log("in if (ceiling) HV:" + hy1 + " XV:" + xv + " YV:" + yv + " Y:" + y + " X:" + x);
-						hitsX(xv,yv*-1,hx1,ballRad);
-					}
-					else if(hx2<=width-paddleWidth-15-ballRad && hx2 > x){
-						console.log("in else if (floor) HV:" + hy1 + " XV:" + xv + " YV:" + yv + " Y:" + y + " X:" + x);
-						hitsX(xv,yv*-1,hx2,height-ballRad);
-					}
-					else {
-						console.log("in else (direct) HV:" + hy1 + " XV:" + xv + " YV:" + yv + " Y:" + y + " X:" + x);
+					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;	
+					if(hy1<=height-ballRad && hy1 >=ballRad){
 						moveTo = hy1;
 						moving = true;
+					}
+					else {
+						if(hx1<=width-paddleWidth-15-ballRad && hx1 > x){
+							hitsX(xv,yv*-1,hx1,ballRad);
+						}
+						else if(hx2<=width-paddleWidth-15-ballRad && hx2 > x){
+							hitsX(xv,yv*-1,hx2,height-ballRad);
+						}
 					}
 				}
 			if(x1<=width-paddleWidth-15-ballRad && x1 > ballX){
