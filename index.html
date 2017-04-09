@@ -142,14 +142,6 @@
 					clearInterval(animate);
 					animate = setInterval(update,1000/frameRate);
 				}
-				if(ballXV<4 || ballYV <4){
-					ballXV*=2;
-					ballYV*=2;
-					aispeed*=2;
-					frameRate*=0.5;
-					clearInterval(animate);
-					animate = setInterval(update,1000/frameRate);
-				}
 				c.fillStyle='black';
 				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
