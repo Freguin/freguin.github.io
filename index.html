@@ -12,12 +12,12 @@
 		<script>
 			width = document.body.clientWidth;
 			height = document.body.clientHeight;
-			frameRate = 30;
+			frameRate = 120;
 			paddle2Speed = 4;
 			ballRad = 4;
 			ballX = width*0.5;
 			ballY = height*0.5;
-			ballXV = ballYV = 8;
+			ballXV = ballYV = 2;
 			paddleHeight = height/7;
 			paddleWidth = 15;
 			p1y = 0.5*height-paddleHeight*0.5;
@@ -35,9 +35,9 @@
 				ballX = width*0.5;
 				ballY = height*0.5;
 				if(ballXV>0){
-					ballXV = ballYV = -8;
+					ballXV = ballYV = -2;
 				} else {
-					ballXV = ballYV = 8;
+					ballXV = ballYV = 2;
 					paddleAI();
 				}
 			}
@@ -100,7 +100,7 @@
 				y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 				if(y>=p1y && y<=p1y+paddleHeight && ballX>=p1x-ballRad && ballX<=p1x+paddleWidth+ballRad) {
 				   ballXV*=-1.05;
-				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.5;
+				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
 				   paddleAI();
 				   }
 				else if(((xTop>=p1x && xTop <= p1x+paddleWidth) || (xBottom>=p1x && xBottom <=p1x+paddleWidth)) && ballX >=p1x && ballX <=p1x+paddleWidth && ballY >=p1y-ballRad && ballY <=p1y+paddleHeight+ballRad) {
@@ -114,7 +114,7 @@
 				y = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 				if(y>=p2y && y<=p2y+paddleHeight && ballX>=p2x-ballRad && ballX<=p2x+paddleWidth+ballRad) {
 				   ballXV*=-1.05;
-				   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.5;
+				   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.125;
 				   moving = false;
 				   }
 				else if(((xTop>=p2x && xTop <= p2x+paddleWidth) || (xBottom>=p2x && xBottom <=p2x+paddleWidth)) && ballX >=p2x && ballX <=p2x+paddleWidth && ballY >=p2y-ballRad && ballY <=p2y+paddleHeight+ballRad) {
@@ -133,14 +133,6 @@
 				}
 				if(moving){
 					move(moveTo);
-				}
-				if(ballXV > 10 || ballYV > 10){
-					ballXV *=0.5;
-					ballYV *=0.5;
-					aispeed *=0.5;
-					frameRate*=2;
-					clearInterval(animate);
-					animate = setInterval(update,1000/frameRate);
 				}
 				c.fillStyle='black';
 				c.fillRect(0,0,width,height);
