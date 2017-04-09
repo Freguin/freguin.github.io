@@ -56,6 +56,7 @@
 				x2=(ballX*(ballYV/ballXV)-ballY+(height-ballRad))/(ballYV/ballXV);
 				y1 = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY; //correct
 				function hitsX(xv,yv,x,y){
+					console.log("went to hitsX");
 					hx1=(x*(yv/xv)-y+ballRad)/(yv/xv);
 					hx2=(x*(yv/xv)-y+(height-ballRad))/(yv/xv);
 					hy1 = yv*(p2x-ballRad)/xv-yv*x/xv+y;				
