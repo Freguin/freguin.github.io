@@ -28,7 +28,6 @@
 			moving = false;
 			moveTo;
 			aispeed = 10;
-			beenHit=false;
 			
 			function reset(){
 				ballX = width*0.5;
@@ -103,16 +102,14 @@
 					ballY = height - (ballY-height+ballRad);
 					ballYV*=-1;
 				}
-				if(beenHit==true) {
-					paddleAI();
-				}
+
 				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
 				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
 				y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
 				if(y>=p1y && y<=p1y+paddleHeight && ballX>=p1x-ballRad && ballX<=p1x+paddleWidth+ballRad) {
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
-				   beenHit=true;
+				   paddleAI();
 				   }
 				else if(((xTop>=p1x && xTop <= p1x+paddleWidth) || (xBottom>=p1x && xBottom <=p1x+paddleWidth)) && ballX >=p1x && ballX <=p1x+paddleWidth && ballY >=p1y-ballRad && ballY <=p1y+paddleHeight+ballRad) {
 				   ballYV*=-1;
@@ -127,7 +124,6 @@
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.125;
 				   moving = false;
-				   beenHit=false;
 				   }
 				else if(((xTop>=p2x && xTop <= p2x+paddleWidth) || (xBottom>=p2x && xBottom <=p2x+paddleWidth)) && ballX >=p2x && ballX <=p2x+paddleWidth && ballY >=p2y-ballRad && ballY <=p2y+paddleHeight+ballRad) {
 				   ballYV*=-1;
