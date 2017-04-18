@@ -28,9 +28,7 @@
 			moving = false;
 			moveTo;
 			aispeed = 10;
-			function distance(px1,py1,px2,py2){
-				return Math.pow(Math.pow(px2-px1,2)+Math.pow(py2-py1,2),0.5);
-			}
+			
 			function reset(){
 				ballX = width*0.5;
 				ballY = height*0.5;
@@ -80,13 +78,13 @@
 				hitsX(ballXV,ballYV*-1,x2,height-ballRad);
 			}
 			else {
+				console.log(ballYV);
 				moveTo = y1;
 				moving = true;
 			}
 			}
+			
 			function update(){
-				ballX+=ballXV;
-				ballY+=ballYV;
 				if(width-ballX<=ballRad){
 					score1++;
 					reset();
@@ -96,15 +94,14 @@
 					reset();
 				}
 				
-				if(ballY<=ballRad){
+				if(ballY<ballRad){
 					ballY = ballRad-ballY;
 					ballYV*=-1;
 				}
-				else if(height-ballY<=ballRad) {
+				else if(height-ballY<ballRad) {
 					ballY = height - (ballY-height+ballRad);
 					ballYV*=-1;
 				}
-				
 				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
 				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
 				y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
@@ -133,6 +130,9 @@
 				   ballX+=ballXV;
 				   moving = false;
 				   }
+				
+				ballX+=ballXV;
+				ballY+=ballYV;
 				
 				if(moving){
 					move(moveTo);
