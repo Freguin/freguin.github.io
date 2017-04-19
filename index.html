@@ -115,10 +115,10 @@
 				   ballY+=ballYV;
 				   ballX+=ballXV;
 				   }
-				else {
+				else if( pow((ballX-(paddleX+paddleWidth)),2) + pow((ballY-paddleY),2) <= ballRad ||  pow((ballX-(paddleX+paddleWidth)),2) + pow((ballY-(paddleY+paddleHeight)),2) <= ballRad){
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
-				   paddleAI();
+				   paddleAI();   
 				}
 					
 				
