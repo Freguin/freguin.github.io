@@ -115,7 +115,7 @@
 				   ballY+=ballYV;
 				   ballX+=ballXV;
 				   }
-				else if( Math.pow((ballX-(paddleX+paddleWidth)),2) + Math.pow((ballY-paddleY),2) <= ballRad ||  Math.pow((ballX-(paddleX+paddleWidth)),2) + Math.pow((ballY-(paddleY+paddleHeight)),2) <= ballRad){
+				else if( Math.pow((ballX-(p1x+paddleWidth)),2) + Math.pow((ballY-p1y),2) <= ballRad ||  Math.pow((ballX-(p1x+paddleWidth)),2) + Math.pow((ballY-(p1y+paddleHeight)),2) <= ballRad){
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
 				   paddleAI();   
