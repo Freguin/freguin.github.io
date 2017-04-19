@@ -115,6 +115,12 @@
 				   ballY+=ballYV;
 				   ballX+=ballXV;
 				   }
+				else {
+				   ballXV*=-1.05;
+				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
+				   paddleAI();
+				}
+					
 				
 				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
 				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
