@@ -96,7 +96,7 @@
 				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
 				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
 				y = ballYV*(p1x+paddleWidth+ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
-				if(y>=p1y && y<=p1y+paddleHeight && ballX>=p1x-ballRad && ballX<=p1x+paddleWidth+ballRad) {
+				if(y>=p1y-1 && y<=p1y+paddleHeight && ballX>=p1x-ballRad && ballX<=p1x+paddleWidth+ballRad+1) {
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
 				   paddleAI();
@@ -116,7 +116,7 @@
 				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
 				xBottom=(ballX*(ballYV/ballXV)-ballY+(p1y+paddleHeight+ballRad))/(ballYV/ballXV);
 				y = ballYV*(p2x-ballRad)/ballXV-ballYV*ballX/ballXV+ballY;
-				if(y>=p2y && y<=p2y+paddleHeight && ballX>=p2x-ballRad && ballX<=p2x+paddleWidth+ballRad) {
+				if(y>=p2y-1 && y<=p2y+paddleHeight+1 && ballX>=p2x-ballRad && ballX<=p2x+paddleWidth+ballRad) {
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.125;
 				   moving = false;
@@ -136,11 +136,11 @@
 				ballX+=ballXV;
 				ballY+=ballYV;
 				
-				if(ballY<ballRad){
+				if(ballRad-ballY>0){
 					ballY = ballRad-ballY+1;
 					ballYV*=-1;
 				}
-				else if(height-ballY<ballRad) {
+				else if(height-ballY-ballRad<0) {
 					ballY = height - (ballY-height+ballRad)-1;
 					ballYV*=-1;
 				}
