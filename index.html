@@ -95,11 +95,11 @@
 				}
 				
 				if(ballY<ballRad){
-					ballY = ballRad-ballY;
+					ballY = ballRad-ballY+1;
 					ballYV*=-1;
 				}
 				else if(height-ballY<ballRad) {
-					ballY = height - (ballY-height+ballRad);
+					ballY = height - (ballY-height+ballRad) - 1;
 					ballYV*=-1;
 				}
 				xTop=(ballX*(ballYV/ballXV)-ballY+(p1y-ballRad))/(ballYV/ballXV);
