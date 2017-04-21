@@ -106,7 +106,7 @@
 				   ballY+=ballYV;
 				   ballX+=ballXV;
 				   }
-				else if( Math.pow((ballX-(p1x+paddleWidth)),2) + Math.pow((ballY-p1y),2) -ballRad <= 0 ||  Math.pow((ballX-(p1x+paddleWidth)),2) + Math.pow((ballY-(p1y+paddleHeight)),2) - ballRad<= 0){
+				else if(Math.pow(Math.pow((ballX-(p1x+paddleWidth)),2) + Math.pow((ballY-p1y),2),0.5) <= ballRad ||  Math.pow(Math.pow((ballX-(p1x+paddleWidth)),2) + Math.pow((ballY-(p1y+paddleHeight)),2),0.5) <= ballRad){
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p1y+0.5*paddleHeight))*0.125;
 				   paddleAI();   
@@ -127,7 +127,7 @@
 				   ballX+=ballXV;
 				   moving = false;
 				   }
-				else if( Math.pow((ballX-p2x),2) + Math.pow((ballY-p2y),2) - ballRad <= 1 ||  Math.pow((ballX-p2x),2) + Math.pow((ballY-(p2y+paddleHeight)),2) - ballRad <= 1){
+				else if(Math.pow(Math.pow((ballX-p2x),2) + Math.pow((ballY-p2y),2),0.5) <= ballRad ||  Math.pow(Math.pow((ballX-p2x),2) + Math.pow((ballY-(p2y+paddleHeight)),2),0.5) <= ballRad){
 				   ballXV*=-1.05;
 				   ballYV=(ballY-(p2y+0.5*paddleHeight))*0.125;
  				   moving = false;
