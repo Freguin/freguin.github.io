@@ -34,27 +34,25 @@
 			}
 			camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ)/50;
 			function doKeyDown(e){
-				switch(e){
-					case 87:
-						camZ++;
-						break;
-					case 65:
-						camX--;
-						break;
-					case 83:
-						camZ--;
-						break;
-					case 68:
-						camX++;
-						break;
-					case 32:
-						camY++;
-						break;
-					case 16:
-						camY--;
-						break;
+				if(e===87){
+					camZ++;
 				}
-				camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ);
+				if(e===65){
+					camX--;
+				}
+				if(e===83){
+					camZ--;
+				}
+				if(e===68){
+					camX++;
+				}
+				if(e===32){
+					camY++;
+				}
+				if(e===16){
+					camY--;
+				}
+				camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ)/50;
 				slope = ((camToCenter-Math.abs(camZ))/Math.abs(camZ)+1)/7;
 			}
 			function update(){
