@@ -28,6 +28,8 @@
 			moving = false;
 			moveTo;
 			aispeed = 10;
+			degree = Math.PI/180;
+			degrees=0;
 			
 			function reset(){
 				ballX = width*0.5;
@@ -90,6 +92,7 @@
 			}
 			
 			function update(){
+				degrees++;
 				if(width-ballX<=ballRad){
 					score1++;
 					reset();
@@ -168,8 +171,8 @@
 				c.fillRect(width/2,i,10,30);
 				}
 				c.font = "42px Pixelated"
-				c.fillText(score1,width/4,70);
-				c.fillText(score2,width*3/4,70);
+				c.fillText(score1,width/4+20*Math.sin(degrees*degree),20*Math.cos(degrees*degree)+70);
+				c.fillText(score2,width*3/4+20*Math.sin(degrees*degree),20*Math.cos(degrees*degree)+70);
 			}
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
