@@ -32,7 +32,7 @@
 			function distance(x1,y1,z1,x2,y2,z2){
 				return Math.pow(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)+Math.pow(z2-z1,2),0.5);
 			}
-			camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ);
+			camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ)/50;
 			function doKeyDown(e){
 				switch(e){
 					case 87:
@@ -55,7 +55,7 @@
 						break;
 				}
 				camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ);
-				slope = (camToCenter-Math.abs(camZ))/Math.abs(camZ)+1;
+				slope = ((camToCenter-Math.abs(camZ))/Math.abs(camZ)+1)/7;
 			}
 			function update(){
 				c.fillStyle = 'white';
