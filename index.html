@@ -39,15 +39,15 @@
 					c.stroke();
 				}
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(clockDegrees/frameRate));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(clockDegrees/frameRate/60));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees/60));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(clockDegrees/frameRate/3600));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees/3600));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				degrees++;
