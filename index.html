@@ -16,6 +16,7 @@
 			clockDegree = Math.PI/30;
 			degree = Math.PI/180
 			degrees = 0;
+			clockDegrees = 0;
 			centerX = width/2;
 			centerY = height/2;
 			centerZ = 0;
@@ -38,18 +39,19 @@
 					c.stroke();
 				}
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees*60/frameRate*clockDegree));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(clockDegree/frameRate));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees*60/frameRate/60*clockDegree));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(clockDegree/frameRate/60));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees*60/frameRate/60/60*clockDegree));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(clockDegree/frameRate/3600));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				degrees++;
+				clockDegrees=clockDegree*degrees;
 			}
 			
 		</script>
