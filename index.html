@@ -142,11 +142,11 @@
 				ballY+=ballYV;
 				
 				if(ballRad>=ballY){
-					ballY = (ballRad-ballY)*2;
+					ballY = ballY;
 					ballYV*=-1;
 				}
 				else if(height-ballY-ballRad<=0) {
-					ballY = (height - (ballY-height+ballRad))*2;
+					ballY = height - (ballY-height);
 					ballYV*=-1;
 				}
 				if(moving){
