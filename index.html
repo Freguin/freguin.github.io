@@ -25,11 +25,11 @@
 			}
 			
 			function update(){
-				for(i=1;i<=360;i++){
-					c.beginPath();
-					c.arc(width/2+Math.sin(i*degree)*20,height/2+Math.cos(i*degree)*20,0.5,0,2*Math.PI);
-					c.stroke();
-				}
+				c.beginPath();
+           			for(i=0;i<=360;i+=60){
+            				c.arc(width/2+Math.sin(i*degree)*10,height/2+Math.cos(i*degree)*10,0.5,0,2*Math.PI);
+           			}
+           			c.stroke();
 				c.fillStyle = 'white';
 				c.fillRect(0,0,width,height);
 			}
