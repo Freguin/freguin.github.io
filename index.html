@@ -28,8 +28,8 @@
 				c.fillStyle = 'white';
 				c.fillRect(0,0,width,height);
 				c.beginPath();
-           			for(i=0;i<=360;i+=60){
-            				c.arc(width/2+Math.sin(i*degree)*10,height/2+Math.cos(i*degree)*10,0.5,0,2*Math.PI);
+           			for(i=0;i<=360;i+=1){
+            				c.arc(width/2+Math.sin(i*degree)*100,height/2+Math.cos(i*degree)*100,0.25,0,2*Math.PI);
            			}
            			c.stroke();
 			}
