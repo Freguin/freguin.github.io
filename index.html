@@ -31,6 +31,17 @@
 			degree = Math.PI/180;
 			degrees=0;
 			
+			window.onload=function(){
+				document.getElementById('canvas').width = width;
+				document.getElementById('canvas').height = height;
+				c = document.getElementById('canvas').getContext('2d')
+				c.fillStyle='#297F29';
+				c.fillRect(0,0,width,height);
+				animate = setInterval(update,1000/frameRate);
+				document.addEventListener('mousemove',function(e){
+					p1y = e.clientY-paddleHeight*0.5;
+				});
+			}
 			function reset(){
 				ballX = width*0.5;
 				ballY = height*0.5;
@@ -173,17 +184,6 @@
 				c.font = "42px Pixelated"
 				c.fillText(score1,width/4+20*Math.sin(degrees*degree),20*Math.cos(degrees*degree)+70);
 				c.fillText(score2,width*3/4+20*Math.sin(degrees*degree)*-1,20*Math.cos(degrees*degree)+70);
-			}
-			window.onload=function(){
-				document.getElementById('canvas').width = width;
-				document.getElementById('canvas').height = height;
-				c = document.getElementById('canvas').getContext('2d')
-				c.fillStyle='#297F29';
-				c.fillRect(0,0,width,height);
-				animate = setInterval(update,1000/frameRate);
-				document.addEventListener('mousemove',function(e){
-					p1y = e.clientY-paddleHeight*0.5;
-				});
 			}
 		</script>
 	
