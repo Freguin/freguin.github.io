@@ -14,56 +14,45 @@
 			height = document.body.clientHeight;
 			frameRate = 140;
 			degree = Math.PI/180;
-			camX = 10;
-			camZ= 10;
-			camY= 0;
+			degrees1=360;
+            degrees2=234;
 			centerX = width/2;
 			centerY = height/2;
 			centerZ = 0;
 			radius = 100;
-			slope = 1;
+			flatten = 10;
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
-				c = document.getElementById('canvas').getContext('2d')
-				document.getElementById('canvas').addEventListener("keydown",doKeyDown,true);
+				c = document.getElementById('canvas').getContext('2d');
 				animate = setInterval(update,1000/frameRate);
 			}
-			function distance(x1,y1,z1,x2,y2,z2){
-				return Math.pow(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)+Math.pow(z2-z1,2),0.5);
-			}
-			camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ)/50;
-			function doKeyDown(e){
-				if(e===87){
-					camZ++;
-				}
-				if(e===65){
-					camX--;
-				}
-				if(e===83){
-					camZ--;
-				}
-				if(e===68){
-					camX++;
-				}
-				if(e===32){
-					camY++;
-				}
-				if(e===16){
-					camY--;
-				}
-				camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ)/50;
-				slope = ((camToCenter-Math.abs(camZ))/Math.abs(camZ)+1)/7;
-			}
+			function distance(x1,y1,x2,y2){
+            	return Math.pow(Math.pow(x2-x1,2)+Math.pow(y2-y1,2),0.5);
+            }
 			function update(){
-				c.fillStyle = 'white';
+				c.fillStyle = 'rgba(255,255,255,0.05)';
 				c.fillRect(0,0,width,height);
-				c.rotate(Math.acos(camY/camToCenter))
 				c.beginPath();
-           			for(i=0;i<=360;i+=1){
-            				c.arc(centerX+Math.sin(i*degree)*(radius/camToCenter),centerY+Math.cos(i*degree)*(radius/camToCenter/slope),0.25,0,2*Math.PI);
-           			}
-           			c.stroke();
+                
+				radius1 = distance(centerX+radius*Math.sin(degrees1*degree)/flatten,centerY+radius*Math.cos(degrees1*degree),centerX+radius*Math.sin((degrees1+180)*degree)/flatten,centerY+radius*Math.cos((degrees1+180)*degree))
+                
+ 				radius2 = distance(centerX+radius*Math.sin(degrees2*degree),centerY+radius*Math.cos(degrees2*degree)/flatten,centerX+radius*Math.sin((degrees2+180)*degree),centerY+radius*Math.cos((degrees2+180)*degree)/flatten)       
+               c.moveTo(centerX+radius*Math.sin(degrees1*degree)/flatten,centerY+radius*Math.cos(degrees1*degree));
+				c.lineTo(centerX+radius*Math.sin((degrees1+180)*degree)/flatten,centerY+radius*Math.cos((degrees1+180)*degree));
+				c.stroke();
+				c.beginPath();
+				c.moveTo(centerX+radius*Math.sin(degrees2*degree),centerY+radius*Math.cos(degrees2*degree)/flatten);
+				c.lineTo(centerX+radius*Math.sin((degrees2+180)*degree),centerY+radius*Math.cos((degrees2+180)*degree)/flatten);
+				c.stroke();
+                
+                c.beginPath();
+                for(i=0;i<360;i++){
+                	c.arc(centerX+radius2/2*Math.sin(i*degree),centerY+radius1/2*Math.cos(i*degree),0.25,0,2*Math.PI);
+                }
+                c.stroke();
+				degrees1++;
+                degrees2++;
 			}
 			
 		</script>
