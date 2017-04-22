@@ -12,47 +12,46 @@
 		<script>
 			width = document.body.clientWidth;
 			height = document.body.clientHeight;
-			frameRate = 140;
+			frameRate = 120;
 			degree = Math.PI/180;
-			degrees1=360;
-         		degrees2=360;
+			degrees = 0;
 			centerX = width/2;
 			centerY = height/2;
 			centerZ = 0;
 			radius = 100;
-			flatten = 5;
+			seconds = 0;
+			minutes = 0;
+			hours = 0;
+
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
 				c = document.getElementById('canvas').getContext('2d');
 				animate = setInterval(update,1000/frameRate);
 			}
-			function distance(x1,y1,x2,y2){
-            	return Math.pow(Math.pow(x2-x1,2)+Math.pow(y2-y1,2),0.5);
-            }
+			
 			function update(){
 				c.fillStyle = 'rgba(255,255,255,0.05)';
 				c.fillRect(0,0,width,height);
+				for(i=0;i<360;i+=30){
+					c.beginPath();
+					c.moveTo(centerX+radius*Math.sin(i*degree),centerY+radius*Math.cos(i*degree));
+					c.lineTo(centerX+(radius*0.9)*Math.sin(i*degree),centerY+(radius*0.9)*Math.cos(i*degree));
+					c.stroke();
+				}
 				c.beginPath();
-                
-				radius1 = distance(centerX+radius*Math.sin(degrees1*degree)/flatten,centerY+radius*Math.cos(degrees1*degree),centerX+radius*Math.sin((degrees1+180)*degree)/flatten,centerY+radius*Math.cos((degrees1+180)*degree))
-                
- 				radius2 = distance(centerX+radius*Math.sin(degrees2*degree),centerY+radius*Math.cos(degrees2*degree)/flatten,centerX+radius*Math.sin((degrees2+180)*degree),centerY+radius*Math.cos((degrees2+180)*degree)/flatten)       
-               c.moveTo(centerX+radius*Math.sin(degrees1*degree)/flatten,centerY+radius*Math.cos(degrees1*degree));
-				c.lineTo(centerX+radius*Math.sin((degrees1+180)*degree)/flatten,centerY+radius*Math.cos((degrees1+180)*degree));
+				c.moveTo(radius*Math.sin(degrees/frameRate*degree),radius*Math.cos(degrees/frameRate*degree));
+				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(degrees2*degree),centerY+radius*Math.cos(degrees2*degree)/flatten);
-				c.lineTo(centerX+radius*Math.sin((degrees2+180)*degree),centerY+radius*Math.cos((degrees2+180)*degree)/flatten);
+				c.moveTo(radius*Math.sin(degrees/frameRate*degree),radius*Math.cos(degrees/frameRate/60*degree));
+				c.lineTo(centerX,centerY);
 				c.stroke();
-                
-                c.beginPath();
-                for(i=0;i<360;i++){
-                	c.arc(centerX+radius2/2*Math.sin(i*degree),centerY+radius1/2*Math.cos(i*degree),0.25,0,2*Math.PI);
-                }
-                c.stroke();
-				degrees1++;
-                degrees2++;
+				c.beginPath();
+				c.moveTo(radius*Math.sin(degrees/frameRate*degree),radius*Math.cos(degrees/frameRate/3600*degree));
+				c.lineTo(centerX,centerY);
+				c.stroke();
+				degrees++;
 			}
 			
 		</script>
