@@ -39,8 +39,8 @@
 					c.stroke();
 				}
 				c.beginPath();
-				c.moveTo(centerX+radius*Math.sin(i*degree),centerY+radius*Math.cos(degrees/60));
-				c.lineTo(centerX,centerY);
+				c.moveTo(centerX,centerY);
+				c.lineTo(centerX+radius*Math.sin(i*degree),centerY+radius*Math.cos(degrees/60));
 				c.stroke();
 				degrees++;
 				clockDegrees=degrees*clockDegree;
