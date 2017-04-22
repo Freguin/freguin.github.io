@@ -17,6 +17,11 @@
 			camX = 10;
 			camZ= 10;
 			camY= 0;
+			centerX = width/2;
+			centerY = height/2;
+			centerZ = 0;
+			radius = 100;
+			slope = 1;
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
@@ -24,15 +29,40 @@
 				document.getElementById('canvas').addEventListener("keydown",doKeyDown,true);
 				animate = setInterval(update,1000/frameRate);
 			}
+			function distance(x1,y1,z1,x2,y2,z2){
+				Math.pow(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)+Math.pow(z2-z1,2),0.5);
+			}
 			function doKeyDown(e){
-				console.log("key: " + e + ", code: " + e.keyCode);
+				switch(e){
+					case 87:
+						camZ++;
+						break;
+					case 65:
+						camX--;
+						break;
+					case 83:
+						camZ--;
+						break;
+					case 68:
+						camX++;
+						break;
+					case 32:
+						camY++;
+						break;
+					case 16:
+						camY--;
+						break;
+				}
+				camToCenter = distance(camX,camY,camZ,centerX,centerY,centerZ);
+				slope = (camToCenter-Math.abs(camZ))/Math.abs(camZ)+1;
 			}
 			function update(){
 				c.fillStyle = 'white';
 				c.fillRect(0,0,width,height);
+				c.rotate(Math.acos(camY/camToCenter))
 				c.beginPath();
            			for(i=0;i<=360;i+=1){
-            				c.arc(width/2+Math.sin(i*degree)*100,height/2+Math.cos(i*degree)*100,0.25,0,2*Math.PI);
+            				c.arc(centerX+Math.sin(i*degree)*(radius/camToCenter),centerY+Math.cos(i*degree)*(radius/camToCenter/slope),0.25,0,2*Math.PI);
            			}
            			c.stroke();
 			}
