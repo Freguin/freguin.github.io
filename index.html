@@ -142,12 +142,12 @@
 				ballY+=ballYV;
 				
 				if(ballRad>ballY){
-					print(ballY + " " + ballY*-1+ballRad);
+					console.log(ballY + " " + ballY*-1+ballRad);
 					ballY = ballY*-1+ballRad;
 					ballYV*=-1;
 				}
 				else if(height-ballY-ballRad<0) {
-					print(ballY + " " + ballY-height-ballRad);
+					console.log(ballY + " " + ballY-height-ballRad);
 					ballY = ballY-height-ballRad;
 					ballYV*=-1;
 				}
