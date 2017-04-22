@@ -13,15 +13,12 @@
 			width = document.body.clientWidth;
 			height = document.body.clientHeight;
 			frameRate = 120;
-			degree = Math.PI/180;
+			degree = Math.PI/30;
 			degrees = 0;
 			centerX = width/2;
 			centerY = height/2;
 			centerZ = 0;
 			radius = 100;
-			seconds = 0;
-			minutes = 0;
-			hours = 0;
 
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
@@ -40,15 +37,15 @@
 					c.stroke();
 				}
 				c.beginPath();
-				c.moveTo(radius*Math.sin(degrees/frameRate*degree),radius*Math.cos(degrees/frameRate*degree));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees*60/frameRate*degree));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(radius*Math.sin(degrees/frameRate*degree),radius*Math.cos(degrees/frameRate/60*degree));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees*60/frameRate/60*degree));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				c.beginPath();
-				c.moveTo(radius*Math.sin(degrees/frameRate*degree),radius*Math.cos(degrees/frameRate/3600*degree));
+				c.moveTo(centerX+radius*Math.sin(degrees/frameRate*degree),centerY+radius*Math.cos(degrees*60/frameRate/60/60*degree));
 				c.lineTo(centerX,centerY);
 				c.stroke();
 				degrees++;
