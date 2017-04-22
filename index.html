@@ -156,13 +156,13 @@
 				if(moving){
 					move(moveTo);
 				}
-				c.fillStyle='rgba(0,0,0,0.015)';
+				c.fillStyle='rgba(153, 187, 255,0.015)';
 				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
 				c.fillRect(width-paddleWidth-15,p2y,paddleWidth,paddleHeight);
 				c.beginPath();
-				c.arc(ballX,ballY, ballRad, 0, 2 * Math.PI, false);
+				c.arc(ballX,ballY, ballRad, 0, 2 * Math.PI, true);
 				c.fill();
 				for(i=0;i<=height;i+=60){
 				c.fillRect(width/2,i,10,30);
