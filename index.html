@@ -156,7 +156,7 @@
 				if(moving){
 					move(moveTo);
 				}
-				c.fillStyle='rgba(1, 33, 12, 0.015)';
+				c.fillStyle='rgba(26, 255, 26, 0.015)';
 				c.fillRect(0,0,width,height);
 				c.fillStyle='white';
 				c.fillRect(15,p1y,paddleWidth,paddleHeight);
@@ -175,7 +175,7 @@
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
 				c = document.getElementById('canvas').getContext('2d')
-				//c.fillStyle='#7FD5FF';
+				//c.fillStyle='#033815';
 				//c.fillRect(0,0,width,height);
 				animate = setInterval(update,1000/frameRate);
 				document.addEventListener('mousemove',function(e){
