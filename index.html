@@ -21,8 +21,11 @@
 				document.getElementById('canvas').width = width;
 				document.getElementById('canvas').height = height;
 				c = document.getElementById('canvas').getContext('2d')
-				document.getElementById('canvas').addEventListener("keydown", function(e){alert("I hate my life");});
+				document.getElementById('canvas').addEventListener("keydown",doKeyDown,true);
 				animate = setInterval(update,1000/frameRate);
+			}
+			function doKeyDown(e){
+				alert("key pressed");
 			}
 			function update(){
 				c.fillStyle = 'white';
