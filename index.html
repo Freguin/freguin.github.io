@@ -142,15 +142,15 @@
 				ballY+=ballYV;
 				
 				if(ballRad>ballY){
-					floop = ballY*-1+ballRad;
+					floop = (ballY-ballRad)*-1+ballRad;
 					console.log(ballY + " " + floop);
-					ballY = ballY*-1+ballRad;
+					ballY = (ballY-ballRad)*-1+ballRad;
 					ballYV*=-1;
 				}
 				else if(height-ballY-ballRad<0) {
-					flop = ballY-height-ballRad;
+					flop = (ballY+ballRad)-height-ballRad;
 					console.log(ballY + " " + flop);
-					ballY = ballY-height-ballRad;
+					ballY = (ballY+ballRad)-height-ballRad;
 					ballYV*=-1;
 				}
 				if(moving){
