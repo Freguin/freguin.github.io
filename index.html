@@ -25,7 +25,7 @@
 				animate = setInterval(update,1000/frameRate);
 			}
 			function doKeyDown(e){
-				alert("key pressed");
+				console.log("key: " + e + ", code: " + e.keyCode);
 			}
 			function update(){
 				c.fillStyle = 'white';
