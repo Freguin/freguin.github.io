@@ -150,7 +150,7 @@
 				else if(height-ballY-ballRad<0) {
 					flop = (ballY+ballRad)-height-ballRad;
 					console.log(ballY + " " + flop);
-					ballY = (ballY+ballRad)-height-ballRad;
+					ballY = height-((ballY+ballRad)-height-ballRad);
 					ballYV*=-1;
 				}
 				if(moving){
