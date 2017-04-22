@@ -40,7 +40,15 @@
 				}
 				c.beginPath();
 				c.moveTo(centerX,centerY);
-				c.lineTo(centerX+radius*Math.sin(degrees*degree/60),centerY+radius*Math.cos(degrees*degree/60));
+				c.lineTo(centerX+radius*Math.sin(clockDegrees/frameRate),centerY+radius*Math.cos(clockDegrees/frameRate));
+				c.stroke();
+				c.beginPath();
+				c.moveTo(centerX,centerY);
+				c.lineTo(centerX+radius*Math.sin(clockDegrees/frameRate/60),centerY+radius*Math.cos(clockDegrees/frameRate/60));
+				c.stroke();
+				c.beginPath();
+				c.moveTo(centerX,centerY);
+				c.lineTo(centerX+radius*Math.sin(clockDegrees/frameRate/3600),centerY+radius*Math.cos(clockDegrees/frameRate/3600));
 				c.stroke();
 				degrees++;
 				clockDegrees=degrees*clockDegree;
