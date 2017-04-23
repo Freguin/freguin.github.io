@@ -40,11 +40,11 @@
 					fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
 					fibY.push(fibY[fibY.length-1]-fib[fib.length-3]);
 				}
-				if(index%3===0){
+				else if(index%3===0){
 					fibX.push(fibX[fibX.length-1]-fib[fib.length-3]);
 					fibY.push(fibY[fibY.length-1]+fib[fib.length-2]);
 				}
-				if(index%2===0){
+				else if(index%2===0){
 					fibX.push(fibX[fibX.length-1]+fib[fib.length-2]);
 					fibY.push(fibY[fibY.length-1]);
 				}
