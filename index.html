@@ -34,7 +34,7 @@
 				}
 				
 				fib.push(fib[fib.length-2]+fib[fib.length-1]);
-				index=fib.length - 2 - floor((fib.length-2)/5)*5;
+				index=fib.length - 2 - Math.floor((fib.length-2)/5)*5;
 				
 				if(index%4===0 && fib.length-2%2!==0){
 					fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
