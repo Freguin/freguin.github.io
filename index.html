@@ -30,8 +30,8 @@
 				c.fillStyle = 'rgb(255,255,255)';
 				c.fillRect(0,0,width,height);
 				c.fillStyle = 'black'
-				for(i=0;i<fibX.length;i++){
-					c.rect(fibX[i],fibY[i],fib[fib.length-1],fib[fib.length-1]);
+				for(i=1;i<fibX.length;i++){
+					c.rect(fibX[i],fibY[i],fib[i-1],fib[i-1]);
 					c.stroke();
 				}
 				
