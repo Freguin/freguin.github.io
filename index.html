@@ -20,6 +20,7 @@
 			fibY = [centerY-0.5];
 			limit = 100
 			i=0;
+			zoom = 1;
 			
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
@@ -34,41 +35,39 @@
 			function update(){
 				i++;
 				c.fillStyle = 'black'
-				c.rect(fibX[i-1],fibY[i-1],fib[i],fib[i]);
+				c.rect(fibX[i-1]/zoom,fibY[i-1]/zoom,fib[i]/zoom,fib[i]/zoom);
 				c.stroke();
-				if(fib.length<=limit){
-					fib.push(fib[fib.length-2]+fib[fib.length-1]);
-					index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
-
+				fib.push(fib[fib.length-2]+fib[fib.length-1]);
+				index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
 					if(index%4===0 && fib.length-2%2!==0){
-						fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
-						fibY.push(fibY[fibY.length-1]-fib[fib.length-3]);
-						c.beginPath();
-						c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1],fib[fib.length-1],0.5*Math.PI,Math.PI);
-						c.stroke();
-					}
-					else if(index%3===0){
-						fibX.push(fibX[fibX.length-1]-fib[fib.length-3]);
-						fibY.push(fibY[fibY.length-1]+fib[fib.length-2]);
-						c.beginPath();
-						c.arc(fibX[fibX.length-1],fibY[fibY.length-1],fib[fib.length-1],0,0.5*Math.PI);
-						c.stroke();
-					}
-					else if(index%2===0){
-						fibX.push(fibX[fibX.length-1]+fib[fib.length-2]);
-						fibY.push(fibY[fibY.length-1]);
-						c.beginPath();
-						c.arc(fibX[fibX.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],1.5*Math.PI,2*Math.PI);
-						c.stroke();
-					}
-					else{
-						fibX.push(fibX[fibX.length-1]);
-						fibY.push(fibY[fibY.length-1]-fib[fib.length-1]);
-						c.beginPath();
-						c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],Math.PI,1.5*Math.PI);
-						c.stroke();
-					}
+					fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
+					fibY.push(fibY[fibY.length-1]-fib[fib.length-3]);
+					c.beginPath();
+					c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1],fib[fib.length-1],0.5*Math.PI,Math.PI);
+					c.stroke();
 				}
+				else if(index%3===0){
+					fibX.push(fibX[fibX.length-1]-fib[fib.length-3]);
+					fibY.push(fibY[fibY.length-1]+fib[fib.length-2]);
+					c.beginPath();
+					c.arc(fibX[fibX.length-1],fibY[fibY.length-1],fib[fib.length-1],0,0.5*Math.PI);
+					c.stroke();
+				}
+				else if(index%2===0){
+					fibX.push(fibX[fibX.length-1]+fib[fib.length-2]);
+					fibY.push(fibY[fibY.length-1]);
+					c.beginPath();
+					c.arc(fibX[fibX.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],1.5*Math.PI,2*Math.PI);
+					c.stroke();
+				}
+				else{
+					fibX.push(fibX[fibX.length-1]);
+					fibY.push(fibY[fibY.length-1]-fib[fib.length-1]);
+					c.beginPath();
+					c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],Math.PI,1.5*Math.PI);
+					c.stroke();
+				}
+				zoom+=0.25;
 			}
 			
 		</script>
