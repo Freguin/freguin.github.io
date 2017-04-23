@@ -40,57 +40,24 @@
 				for(j=1;j<fib.length;j++){
 					c.rect((fibX[j-1]-centerX)/zoom+centerX,(centerY+fibY[j-1])/zoom+centerY,fib[j]/zoom,fib[j]/zoom);
 					c.stroke();
-					index=Math.floor(j/4)*4;
-					if(index%4===0){
-						c.beginPath();
-						c.arc(fibX[j]+fib[j],fibY[j],fib[j],0.5*Math.PI,Math.PI);
-						c.stroke();
-					}
-					else if(index%3===0){
-						c.beginPath();
-						c.arc(fibX[j],fibY[j],fib[j],0,0.5*Math.PI);
-						c.stroke();
-					}
-					else if(index%2===0){
-						c.beginPath();
-						c.arc(fibX[j],fibY[j]+fib[j],fib[j],1.5*Math.PI,2*Math.PI);
-						c.stroke();
-					}
-					else{
-						c.beginPath();
-						c.arc(fibX[j]+fib[j],fibY[j]+fib[j],fib[j],Math.PI,1.5*Math.PI);
-						c.stroke();
-					}
 				}
 				fib.push(fib[fib.length-2]+fib[fib.length-1]);
 				index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
 				if(index%4===0 && fib.length-2%2!==0){
 					fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
 					fibY.push(fibY[fibY.length-1]-fib[fib.length-3]);
-					c.beginPath();
-					c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1],fib[fib.length-1],0.5*Math.PI,Math.PI);
-					c.stroke();
 				}
 				else if(index%3===0){
 					fibX.push(fibX[fibX.length-1]-fib[fib.length-3]);
 					fibY.push(fibY[fibY.length-1]+fib[fib.length-2]);
-					c.beginPath();
-					c.arc(fibX[fibX.length-1],fibY[fibY.length-1],fib[fib.length-1],0,0.5*Math.PI);
-					c.stroke();
 				}
 				else if(index%2===0){
 					fibX.push(fibX[fibX.length-1]+fib[fib.length-2]);
 					fibY.push(fibY[fibY.length-1]);
-					c.beginPath();
-					c.arc(fibX[fibX.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],1.5*Math.PI,2*Math.PI);
-					c.stroke();
 				}
 				else{
 					fibX.push(fibX[fibX.length-1]);
 					fibY.push(fibY[fibY.length-1]-fib[fib.length-1]);
-					c.beginPath();
-					c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],Math.PI,1.5*Math.PI);
-					c.stroke();
 				}
 				zoom*=1.01;
 			}
