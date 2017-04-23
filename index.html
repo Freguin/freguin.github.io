@@ -41,24 +41,24 @@
 					c.rect((fibX[j-1]-centerX)/zoom+centerX,(centerY+fibY[j-1])/zoom+centerY,fib[j]/zoom,fib[j]/zoom);
 					c.stroke();
 					index=Math.floor(j/4)*4;
-					if(index%4===0 && fib.length-2%2!==0){
+					if(index%4===0){
 						c.beginPath();
-						c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1],fib[fib.length-1],0.5*Math.PI,Math.PI);
+						c.arc(fibX[j]+fib[j],fibY[j],fib[j],0.5*Math.PI,Math.PI);
 						c.stroke();
 					}
 					else if(index%3===0){
 						c.beginPath();
-						c.arc(fibX[fibX.length-1],fibY[fibY.length-1],fib[fib.length-1],0,0.5*Math.PI);
+						c.arc(fibX[j],fibY[j],fib[j],0,0.5*Math.PI);
 						c.stroke();
 					}
 					else if(index%2===0){
 						c.beginPath();
-						c.arc(fibX[fibX.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],1.5*Math.PI,2*Math.PI);
+						c.arc(fibX[j],fibY[j]+fib[j],fib[j],1.5*Math.PI,2*Math.PI);
 						c.stroke();
 					}
 					else{
 						c.beginPath();
-						c.arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],Math.PI,1.5*Math.PI);
+						c.arc(fibX[j]+fib[j],fibYj]+fib[j],fib[j],Math.PI,1.5*Math.PI);
 						c.stroke();
 					}
 				}
