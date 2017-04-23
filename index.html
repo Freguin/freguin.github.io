@@ -19,6 +19,7 @@
 			fibX = [centerX-0.5];
 			fibY = [centerY-0.5];
 			limit = 100
+			i=0;
 			
 			window.onload=function(){
 				document.getElementById('canvas').width = width;
@@ -28,13 +29,10 @@
 			}
 			
 			function update(){
-				c.fillStyle = 'rgb(255,255,255)';
-				c.fillRect(0,0,width,height);
+				i++;
 				c.fillStyle = 'black'
-				for(i=1;i<fibX.length;i++){
-					c.rect(fibX[i-1],fibY[i-1],fib[i],fib[i]);
-					c.stroke();
-				}
+				c.rect(fibX[i-1],fibY[i-1],fib[i],fib[i]);
+				c.stroke();
 				if(fib.length<=limit){
 					fib.push(fib[fib.length-2]+fib[fib.length-1]);
 					index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
