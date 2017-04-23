@@ -34,6 +34,8 @@
 			
 			function update(){
 				i++;
+				c.fillStyle = 'white';
+				c.fillRect(0,0,width,height);
 				c.fillStyle = 'black';
 				for(j=1;j<fib.length;j++){
 					c.rect((fibX[j-1]-centerX)/zoom+centerX,(centerY+fibY[j-1])/zoom+centerY,fib[j]/zoom,fib[j]/zoom);
