@@ -34,9 +34,11 @@
 			
 			function update(){
 				i++;
-				c.fillStyle = 'black'
-				c.rect(fibX[i-1]/zoom,fibY[i-1]/zoom,fib[i]/zoom,fib[i]/zoom);
-				c.stroke();
+				c.fillStyle = 'black';
+				for(j=1;j<fib.length;j++){
+					c.rect(fibX[j-1]/zoom,fibY[j-1]/zoom,fib[j]/zoom,fib[j]/zoom);
+					c.stroke();
+				}
 				fib.push(fib[fib.length-2]+fib[fib.length-1]);
 				index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
 					if(index%4===0 && fib.length-2%2!==0){
