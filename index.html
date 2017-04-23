@@ -27,7 +27,7 @@
 				c = document.getElementById('canvas').getContext('2d');
 				animate = setInterval(update,1000/frameRate);
 			}
-			
+			c.arc(centerX+0.5,centerY+0.5,1,Math.PI,1.5*Math.PI);
 			function update(){
 				i++;
 				c.fillStyle = 'black'
@@ -40,18 +40,23 @@
 					if(index%4===0 && fib.length-2%2!==0){
 						fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
 						fibY.push(fibY[fibY.length-1]-fib[fib.length-3]);
+						arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1],fib[fib.length-1],Math.PI,1.5*Math.PI);
 					}
 					else if(index%3===0){
 						fibX.push(fibX[fibX.length-1]-fib[fib.length-3]);
 						fibY.push(fibY[fibY.length-1]+fib[fib.length-2]);
+						arc(fibX[fibX.length-1],fibY[fibY.length-1],fib[fib.length-1],0.5*Math.PI,Math.PI);
 					}
 					else if(index%2===0){
 						fibX.push(fibX[fibX.length-1]+fib[fib.length-2]);
 						fibY.push(fibY[fibY.length-1]);
+						arc(fibX[fibX.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],0,0.5*Math.PI);
+
 					}
 					else{
 						fibX.push(fibX[fibX.length-1]);
 						fibY.push(fibY[fibY.length-1]-fib[fib.length-1]);
+						arc(fibX[fibX.length-1]+fib[fib.length-1],fibY[fibY.length-1]+fib[fib.length-1],fib[fib.length-1],1.5*Math.PI,2*Math.PI);
 					}
 				}
 			}
