@@ -31,12 +31,12 @@
 				c.fillRect(0,0,width,height);
 				c.fillStyle = 'black'
 				for(i=1;i<fibX.length;i++){
-					c.rect(fibX[i],fibY[i],fib[i-1],fib[i-1]);
+					c.rect(fibX[i-1],fibY[i-1],fib[i],fib[i]);
 					c.stroke();
 				}
 				
 				fib.push(fib[fib.length-2]+fib[fib.length-1]);
-				index=fib.length - 2 - Math.floor((fib.length-2)/5)*5;
+				index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
 				
 				if(index%4===0 && fib.length-2%2!==0){
 					fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
