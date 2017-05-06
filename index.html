@@ -1,94 +1,53 @@
 <html><head>
 		<meta charset="UTF-8">
 		<style>
-		@font-face {
-		    font-family: 'Pixelated';
-		    src: url("FFFFORWA.TTF") format('truetype');
-			}
-		</style>
-	</head>
-	<body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
-		<canvas id="canvas" width="500" height="500" tabindex="1"></canvas>
-		<script>
-			width = document.body.clientWidth;
-			height = document.body.clientHeight;
-			frameRate = 120;
-			centerX = width/2;
-			centerY = height/2;
-			fib = [0,1];
-			fibX = [centerX-0.5];
-			fibY = [centerY-0.5];
-			arcX = [centerX+0.5];
-			arcY = [centerY+0.5];
-			arcRad = [1];
-			arcStartDegrees = [Math.PI];
-			arcEndDegrees = [1.5*Math.PI];
-			limit = 100
-			i=0;
-			zoom = 10;
-			
-			window.onload=function(){
-				document.getElementById('canvas').width = width;
-				document.getElementById('canvas').height = height;
-				c = document.getElementById('canvas').getContext('2d');
-				animate = setInterval(update,1000/frameRate);
-			}
-			
-			function update(){
-				i++;
-				c.fillStyle = 'white';
-				c.fillRect(0,0,width,height);
-				c.fillStyle = 'black';
-				for(j=1;j<fib.length;j++){
-					c.beginPath();
-					c.rect((fibX[j-1]-centerX)/zoom+centerX,(centerY+fibY[j-1])/zoom+centerY,fib[j]/zoom,fib[j]/zoom);
-					c.stroke();
-					c.beginPath();
-					c.arc((arcX[j-1]-centerX)/zoom+centerX,(arcY[j-1]+centerY)/zoom+centerY,arcRad[j-1]/zoom,arcStartDegrees[j-1],arcEndDegrees[j-1]);
-					c.stroke();
-				}
-				fib.push(fib[fib.length-2]+fib[fib.length-1]);
-				index=fib.length - 2 - Math.floor((fib.length-2)/4)*4;
-				if(index%4===0 && fib.length-2%2!==0){
-  					fibX.push(fibX[fibX.length-1]-fib[fib.length-1]);
-  					fibY.push(fibY[fibY.length-1]-fib[fib.length-3]);
- 					arcX.push(fibX[fibX.length-1]+fib[fib.length-1]);
-					arcY.push(fibY[fibY.length-1]);
-					arcRad.push(fib[fib.length-1]);
-					arcStartDegrees.push(0.5*Math.PI);
-					arcEndDegrees.push(Math.PI);
-  				}
-  				else if(index%3===0){
-  					fibX.push(fibX[fibX.length-1]-fib[fib.length-3]);
-  					fibY.push(fibY[fibY.length-1]+fib[fib.length-2]);
- 					arcX.push(fibX[fibX.length-1]);
-					arcY.push(fibY[fibY.length-1]);
-					arcRad.push(fib[fib.length-1]);
-					arcStartDegrees.push(0);
-					arcEndDegrees.push(0.5*Math.PI);
-  				}
-  				else if(index%2===0){
-  					fibX.push(fibX[fibX.length-1]+fib[fib.length-2]);
-  					fibY.push(fibY[fibY.length-1]);
- 					arcX.push(fibX[fibX.length-1]);
-					arcY.push(fibY[fibY.length-1]+fib[fib.length-1]);
-					arcRad.push(fib[fib.length-1]);
-					arcStartDegrees.push(1.5*Math.PI);
-					arcEndDegrees.push(2*Math.PI);
-  				}
-  				else{
-  					fibX.push(fibX[fibX.length-1]);
-  					fibY.push(fibY[fibY.length-1]-fib[fib.length-1]);
- 					arcX.push(fibX[fibX.length-1]+fib[fib.length-1]);
-					arcY.push(fibY[fibY.length-1]+fib[fib.length-1]);
-					arcRad.push(fib[fib.length-1]);
-					arcStartDegrees.push(Math.PI);
-					arcEndDegrees.push(1.5*Math.PI);
-  				}
-				zoom*=1.005;
-			}
-			
-		</script>
-	
+  @font-face {
+    font-family: 'Pixelated';
+    src: url("FFFFORWA.TTF") format('truetype');
+  }
 
-</body></html>
+</style>
+
+<body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
+  <canvas id="canvas" width="500" height="500" tabindex="1"></canvas>
+  <script>
+    width = document.body.clientWidth;
+    height = document.body.clientHeight;
+    frameRate = 1000;
+    iterate = 0;
+    halfW = width / 2;
+    halfH = height / 2;
+		unsorted = [830, 788, 57, 10, 793, 334, 811, 580, 482, 792, 903, 628, 61, 822, 842, 512, 242, 122, 910, 621, 133, 940, 681, 110, 196, 632, 24, 424, 756, 342, 346, 161, 253, 726, 87, 813, 486, 757, 717, 41, 554, 873, 229, 73, 48, 976, 530, 672, 747, 882, 294, 639, 403, 534, 42, 12, 797, 723, 734, 691, 501, 690, 743, 420, 9, 891, 669, 849, 864, 932, 945, 137, 827, 573, 186, 920, 280, 737, 686, 625, 254, 631, 616, 744, 105, 643, 345, 286, 520, 381, 858, 380, 622, 347, 732, 576, 897, 911, 666, 246, 22, 637, 40, 436, 159, 157, 363, 860, 713, 709, 569, 789, 916, 731, 129, 578, 84, 47, 237, 119, 574, 923, 65, 136, 117, 767, 384, 720, 715, 257, 689, 798, 662, 703, 283, 809, 655, 34, 13, 635, 267, 20, 143, 784, 746, 657, 151, 586, 130, 548, 160, 550, 814, 661, 5, 638, 377, 890, 291, 142, 239, 853, 285, 685, 356, 479, 495, 168, 297, 43, 337, 507, 735, 833, 984, 45, 328, 333, 582, 268, 675, 781, 800, 349, 515, 533, 355, 663, 476, 113, 75, 604, 895, 395, 884, 840, 508, 344, 411, 958, 966, 808, 472, 585, 77, 606, 704, 231, 169, 878, 261, 765, 276, 323, 730, 306, 95, 804, 925, 971, 980, 303, 309, 608, 179, 473, 481, 103, 8, 498, 227, 790, 547, 771, 609, 465, 17, 307, 462, 100, 981, 888, 620, 63, 140, 36, 81, 821, 343, 877, 316, 335, 382, 760, 238, 902, 791, 529, 25, 259, 831, 745, 106, 174, 72, 88, 116, 700, 862, 828, 938, 112, 223, 599, 456, 427, 470, 35, 314, 913, 837, 421, 654, 412, 416, 432, 796, 190, 893, 149, 524, 134, 329, 963, 96, 457, 274, 390, 336, 251, 974, 876, 641, 601, 278, 375, 592, 74, 438, 819, 844, 210, 839, 181, 206, 497, 880, 446, 148, 566, 14, 232, 605, 263, 591, 236, 1000, 202, 393, 152, 712, 102, 423, 922, 60, 1, 678, 782, 942, 741, 646, 885, 282, 575, 545, 518, 921, 247, 997, 428, 279, 6, 861, 399, 561, 195, 66, 94, 787, 56, 443, 374, 538, 434, 490, 708, 211, 838, 208, 992, 492, 960, 624, 425, 478, 189, 754, 936, 867, 919, 773, 651, 597, 939, 500, 522, 975, 786, 557, 610, 429, 361, 111, 341, 670, 949, 926, 950, 612, 742, 89, 967, 439, 321, 98, 577, 532, 431, 696, 650, 350, 290, 973, 163, 327, 235, 295, 418, 768, 124, 325, 707, 887, 162, 107, 54, 262, 682, 851, 528, 378, 422, 549, 2, 194, 879, 673, 521, 146, 166, 264, 951, 924, 847, 506, 184, 823, 728, 83, 556, 269, 315, 266, 875, 993, 825, 630, 881, 633, 85, 912, 464, 865, 187, 944, 972, 496, 442, 304, 653, 126, 357, 489, 204, 499, 164, 870, 560, 224, 394, 385, 722, 324, 330, 273, 170, 178, 16, 994, 889, 998, 868, 970, 711, 526, 51, 331, 965, 841, 483, 738, 53, 779, 706, 373, 38, 167, 697, 905, 563, 733, 234, 850, 199, 410, 31, 33, 120, 277, 658, 857, 727, 201, 892, 806, 468, 49, 207, 18, 320, 614, 755, 995, 409, 542, 214, 740, 736, 332, 652, 125, 511, 367, 55, 724, 519, 710, 365, 39, 284, 826, 687, 173, 776, 86, 772, 693, 719, 30, 953, 364, 219, 695, 664, 484, 818, 795, 92, 859, 154, 869, 701, 387, 391, 739, 584, 982, 82, 962, 883, 640, 525, 694, 370, 504, 986, 990, 513, 627, 302, 558, 93, 523, 968, 901, 383, 198, 485, 517, 62, 445, 58, 683, 829, 368, 603, 255, 185, 805, 64, 256, 372, 836, 999, 568, 216, 471, 127, 699, 288, 200, 785, 90, 97, 588, 376, 176, 667, 531, 815, 28, 559, 244, 680, 230, 156, 406, 392, 477, 353, 705, 671, 70, 435, 957, 602, 454, 918, 441, 318, 660, 593, 419, 564, 959, 467, 11, 296, 758, 369, 648, 466, 947, 729, 852, 359, 552, 802, 679, 810, 440, 607, 78, 480, 145, 183, 906, 91, 212, 536, 402, 115, 397, 109, 510, 871, 824, 636, 46, 894, 80, 665, 692, 289, 339, 413, 459, 362, 846, 935, 948, 52, 213, 220, 371, 226, 44, 312, 144, 598, 623, 469, 322, 934, 104, 301, 983, 590, 647, 856, 150, 305, 426, 417, 389, 249, 596, 132, 927, 915, 487, 952, 562, 193, 991, 191, 360, 770, 99, 401, 155, 171, 275, 493, 649, 955, 929, 541, 537, 677, 978, 931, 158, 313, 567, 896, 69, 817, 540, 79, 388, 843, 287, 676, 172, 444, 764, 494, 600, 941, 898, 26, 753, 398, 516, 572, 221, 245, 783, 778, 32, 539, 613, 108, 594, 243, 886, 240, 460, 777, 248, 21, 27, 854, 131, 463, 762, 50, 626, 659, 775, 475, 265, 674, 71, 928, 139, 310, 23, 799, 308, 451, 769, 205, 688, 555, 233, 182, 76, 128, 241, 565, 225, 351, 714, 175, 749, 668, 299, 794, 943, 855, 907, 816, 258, 430, 595, 415, 407, 474, 579, 832, 400, 358, 319, 766, 218, 702, 177, 848, 872, 820, 209, 581, 123, 68, 698, 7, 954, 752, 964, 656, 404, 59, 618, 761, 352, 611, 180, 101, 874, 165, 192, 317, 396, 629, 866, 408, 917, 354, 138, 684, 298, 748, 985, 29, 937, 946, 19, 153, 450, 502, 543, 222, 272, 835, 458, 834, 217, 969, 988, 642, 571, 619, 197, 763, 135, 215, 863, 67, 759, 718, 716, 774, 491, 956, 527, 250, 114, 453, 987, 203, 433, 281, 546, 930, 348, 188, 292, 725, 535, 803, 488, 615, 645, 326, 121, 414, 634, 437, 3, 589, 379, 904, 807, 509, 141, 989, 587, 4, 570, 37, 311, 900, 996, 961, 228, 909, 551, 721, 908, 553, 899, 366, 751, 780, 544, 801, 455, 448, 503, 644, 514, 452, 338, 118, 405, 750, 845, 271, 979, 977, 15, 270, 449, 252, 505, 617, 340, 461, 933, 914, 147, 812, 447, 300, 260, 293, 386, 583];
+
+
+    window.onload = function() {
+      document.getElementById('canvas').width = width;
+      document.getElementById('canvas').height = height;
+      c = document.getElementById('canvas').getContext('2d');
+      animate = setInterval(update, 1000 / frameRate);
+    }
+
+    function update() {
+      c.fillStyle = 'rgba(255,255,255,1)';
+      c.fillRect(0, 0, width, height);
+      c.fillStyle = 'rgba(0,0,0,1)';
+      if(iterate===unsorted.length-1){
+      	iterate = 0;
+      }
+      for(i=0;i<unsorted.length;i++){
+      	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length+1,unsorted[i]*(height/unsorted.length));
+      }
+      if(unsorted[iterate] > unsorted[iterate+1]){
+      	foo = unsorted[iterate];
+        unsorted[iterate] = unsorted[iterate+1];
+        unsorted[iterate+1] = foo;
+      }
+      
+      iterate++;
+    }
+
+  </script>
+
+
+</body>
+	</html>
