@@ -1,13 +1,5 @@
 <html><head>
 		<meta charset="UTF-8">
-		<style>
-  @font-face {
-    font-family: 'Pixelated';
-    src: url("FFFFORWA.TTF") format('truetype');
-  }
-
-</style>
-
 <body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
   <canvas id="canvas" width="500" height="500" tabindex="1"></canvas>
   <script>
@@ -17,9 +9,10 @@
     iterate = 0;
     halfW = width / 2;
     halfH = height / 2;
+    subtraction = 0;
     unsorted = [1];
-    var qux;
-
+    up = true;
+    var quux;
     function getRandomIntInclusive(min, max) {
 	  min = Math.ceil(min);
 	  max = Math.floor(max);
@@ -29,21 +22,25 @@
 	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
-    iterate = unsorted.length-1;
-    downTo = -1;
+    upTo = unsorted.length-1;
     window.onload = function() {
       document.getElementById('canvas').width = width;
       document.getElementById('canvas').height = height;
       c = document.getElementById('canvas').getContext('2d');
       animate = setInterval(update, 1000 / frameRate);
     }
-
     function update() {
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
-      if(iterate===downTo){
+      if(iterate===upTo && up === true){
       	iterate = unsorted.length-1;
-	upTo = qux;
+	upTo = quux;
+	up = false;
+      }
+      else if(iterate==downTo && up === false){
+      	iterate = 0;
+      	downTo = quux;
+	up = true;
       }
       for(i=0;i<unsorted.length;i++){
 	if(i===iterate){
@@ -57,17 +54,19 @@
 	}
       	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length+1,unsorted[i]*(height/unsorted.length));
       }
+	    
       if(unsorted[iterate] > unsorted[iterate+1]){
       	foo = unsorted[iterate];
         unsorted[iterate] = unsorted[iterate+1];
         unsorted[iterate+1] = foo;
-	qux = iterate;
+	quux = iterate;
       }
-      iterate--;
+      if(up === true){
+	  iterate++;
+      } else {
+          iterate--;
+      }
     }
-
   </script>
-
-
 </body>
-	</html>
+</html>
