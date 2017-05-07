@@ -42,7 +42,6 @@
       c.fillRect(0, 0, width, height);
       if(iterate===upTo){
       	iterate = 0;
-	upTo--;
       }
       for(i=0;i<unsorted.length;i++){
 	if(i===iterate){
@@ -60,8 +59,10 @@
       	foo = unsorted[iterate];
         unsorted[iterate] = unsorted[iterate+1];
         unsorted[iterate+1] = foo;
+	quux = iterate;
       }
       iterate++;
+      upTo = quux;
       console.log(upTo);
     }
 
