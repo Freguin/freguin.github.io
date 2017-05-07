@@ -19,6 +19,7 @@
     halfH = height / 2;
     subtraction = 0;
     unsorted = [1];
+    var quux;
 
     function getRandomIntInclusive(min, max) {
 	  min = Math.ceil(min);
@@ -42,6 +43,7 @@
       c.fillRect(0, 0, width, height);
       if(iterate===upTo){
       	iterate = 0;
+	upTo = quux;
       }
       for(i=0;i<unsorted.length;i++){
 	if(i===iterate){
@@ -62,7 +64,6 @@
 	quux = iterate;
       }
       iterate++;
-      upTo = quux;
       console.log(upTo);
     }
 
