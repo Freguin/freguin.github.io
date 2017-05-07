@@ -18,7 +18,7 @@
 	  max = Math.floor(max);
 	  return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    for(j=2;j<=500;j++){
+    for(j=2;j<=100;j++){
 	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
@@ -38,7 +38,7 @@
 	upTo = quux;
 	up = false;
       }
-      else if(iterate==downTo && up === false){
+      else if(iterate===downTo && up === false){
       	iterate = 0;
       	downTo = quux;
 	up = true;
