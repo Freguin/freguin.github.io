@@ -37,12 +37,12 @@
       c.fillRect(0, 0, width, height);
       if(iterate===upTo && up === true){
       	iterate = unsorted.length-1;
-	upTo = quux;
+	downTo = quux;
 	up = false;
       }
       else if(iterate===downTo && up === false){
       	iterate = 0;
-      	downTo = quux;
+      	upTo = quux;
 	up = true;
       }
       for(i=0;i<unsorted.length;i++){
