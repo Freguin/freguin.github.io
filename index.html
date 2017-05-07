@@ -29,6 +29,7 @@
 	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
+    upTo = unsorted.length-1;
     window.onload = function() {
       document.getElementById('canvas').width = width;
       document.getElementById('canvas').height = height;
@@ -39,9 +40,8 @@
     function update() {
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
-      if(iterate===unsorted.length-1-subtraction){
+      if(iterate===upTo){
       	iterate = 0;
-	subtraction++;
       }
       for(i=0;i<unsorted.length;i++){
 	if(i===iterate){
@@ -61,6 +61,7 @@
         unsorted[iterate+1] = foo;
       }
       iterate++;
+      upTo--;
     }
 
   </script>
