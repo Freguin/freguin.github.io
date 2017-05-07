@@ -42,6 +42,7 @@
     function update() {
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
+      console.log(upTo);
       if(iterate===upTo){
       	iterate = unsorted.length-1;
 	upTo = quux;
@@ -65,7 +66,6 @@
 	quux = iterate+1;
       }
       iterate--;
-      console.log(upTo);
       console.log(iterate);
     }
 
