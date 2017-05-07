@@ -36,12 +36,12 @@
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
       if(iterate===downTo && up === false){
-      	//iterate = 0;
+      	iterate++;
 	downTo = quux;
 	up = true;
       }
       else if(iterate===upTo && up === true){
-      	//iterate = unsorted.length-1;
+      	iterate--;
       	upTo = quux;
 	up = false;
       }
