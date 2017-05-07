@@ -18,7 +18,7 @@
     halfW = width / 2;
     halfH = height / 2;
     unsorted = [1];
-    quux=0;
+    var quux;
 
     function getRandomIntInclusive(min, max) {
 	  min = Math.ceil(min);
@@ -30,7 +30,7 @@
         unsorted.splice(index, 0, j);
     }
     iterate = unsorted.length-1;
-    upTo = 0;
+    upTo = -1;
     window.onload = function() {
       document.getElementById('canvas').width = width;
       document.getElementById('canvas').height = height;
