@@ -31,6 +31,8 @@
       animate = setInterval(update, 1000 / frameRate);
     }
     function update() {
+	console.log(upTo);
+	console.log(downTo);
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
       if(iterate===upTo && up === true){
