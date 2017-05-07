@@ -35,15 +35,15 @@
 	console.log(downTo);
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
-      if(iterate===upTo && up === true){
+      if(iterate===downTo && up === false){
       	iterate = unsorted.length-1;
 	downTo = quux;
-	up = false;
+	up = true;
       }
-      else if(iterate===downTo && up === false){
+      else if(iterate===upTo && up === true){
       	iterate = 0;
       	upTo = quux;
-	up = true;
+	up = false;
       }
       for(i=0;i<unsorted.length;i++){
 	if(i===iterate){
