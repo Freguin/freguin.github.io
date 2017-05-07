@@ -30,6 +30,7 @@
 	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
+    iterated = unsorted.length-1;
     upTo = unsorted.length-1;
     window.onload = function() {
       document.getElementById('canvas').width = width;
@@ -42,7 +43,7 @@
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
       if(iterate===upTo){
-      	iterate = 0;
+      	iterate = unsorted.length-1;
 	upTo = quux;
       }
       for(i=0;i<unsorted.length;i++){
@@ -63,8 +64,7 @@
         unsorted[iterate+1] = foo;
 	quux = iterate;
       }
-      iterate++;
-      console.log(upTo);
+      iterate--;
     }
 
   </script>
