@@ -24,7 +24,7 @@
 	  return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     for(j=2;j<=200;j++){
-	index = getRandomIntInclusive(0,unsorted.length-1);
+	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
     window.onload = function() {
