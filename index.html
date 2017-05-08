@@ -58,19 +58,17 @@
 	}
       	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length+1,unsorted[i]*(height/unsorted.length));
       }
-      for(i=0;i<=skips;i++){  
-	      if(unsorted[iterate] > unsorted[iterate+1]){
-		foo = unsorted[iterate];
-		unsorted[iterate] = unsorted[iterate+1];
-		unsorted[iterate+1] = foo;
-		quux = iterate;
-	      }
-	      iterate++;
-      }
+      if(unsorted[iterate] > unsorted[iterate+1]){
+	foo = unsorted[iterate];
+	unsorted[iterate] = unsorted[iterate+1];
+	unsorted[iterate+1] = foo;
+	quux = iterate;
+       }
+
       if(up === true){
-	  //iterate+=1-skips;
+	  iterate+=1;
       } else {
-         //iterate-=1-skips;
+         iterate-=1;
       }
     }
   </script>
