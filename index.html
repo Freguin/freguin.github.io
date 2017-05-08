@@ -11,6 +11,7 @@
     halfH = height / 2;
     subtraction = 0;
     unsorted = [1];
+    skips = 1;
     up = true;
     var quux;
     function getRandomIntInclusive(min, max) {
@@ -57,17 +58,19 @@
 	}
       	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length+1,unsorted[i]*(height/unsorted.length));
       }
-	    
-      if(unsorted[iterate] > unsorted[iterate+1]){
-      	foo = unsorted[iterate];
-        unsorted[iterate] = unsorted[iterate+1];
-        unsorted[iterate+1] = foo;
-	quux = iterate;
+      for(i=0;i<=skips;i++){  
+	      if(unsorted[iterate] > unsorted[iterate+1]){
+		foo = unsorted[iterate];
+		unsorted[iterate] = unsorted[iterate+1];
+		unsorted[iterate+1] = foo;
+		quux = iterate;
+	      }
+	      iterate++;
       }
       if(up === true){
-	  iterate++;
+	  iterate+=1-skips;
       } else {
-          iterate--;
+          iterate-=1-skips;
       }
     }
   </script>
