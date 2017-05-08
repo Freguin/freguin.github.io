@@ -4,14 +4,15 @@
   <canvas id="canvas" width="500" height="500" tabindex="1"></canvas>
   <script>
     width = document.body.clientWidth;
-    height = document.body.clientHeight;
-    frameRate = 100000;
+    height = 483;
+    frameRate = 1000;
     iterate = 0;
     halfW = width / 2;
     halfH = height / 2;
     subtraction = 0;
     unsorted = [1];
-    skips = 1;
+    skips = 10000;
+    list_size = 5000;
     up = true;
     var quux;
     function getRandomIntInclusive(min, max) {
@@ -19,7 +20,7 @@
 	  max = Math.floor(max);
 	  return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    for(j=2;j<=500;j++){
+    for(j=2;j<=list_size;j++){
 	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
@@ -32,10 +33,9 @@
       animate = setInterval(update, 1000 / frameRate);
     }
     function update() {
-	console.log(upTo);
-	console.log(downTo);
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
+      for(i=0;i<=skips;i++){
       if(iterate===downTo && up === false){
       	iterate++;
 	downTo = quux;
@@ -46,6 +46,20 @@
       	upTo = quux;
 	up = false;
       }
+	    
+      if(unsorted[iterate] > unsorted[iterate+1]){
+      	foo = unsorted[iterate];
+        unsorted[iterate] = unsorted[iterate+1];
+        unsorted[iterate+1] = foo;
+	quux = iterate;
+      }
+      if(up === true){
+	  iterate++;
+      } else {
+          iterate--;
+      }
+      }
+      //draws rectangles
       for(i=0;i<unsorted.length;i++){
 	if(i===iterate){
 		c.fillStyle = 'rgba(255, 80, 80, 1)';
@@ -56,21 +70,8 @@
 	else {
 		c.fillStyle = 'rgba(0,0,0,1)';
 	}
-      	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length+1,unsorted[i]*(height/unsorted.length));
-      }
-      if(unsorted[iterate] > unsorted[iterate+1]){
-	foo = unsorted[iterate];
-	unsorted[iterate] = unsorted[iterate+1];
-	unsorted[iterate+1] = foo;
-	quux = iterate;
-       }
-
-      if(up === true){
-	  iterate+=1;
-      } else {
-         iterate-=1;
+      	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length,unsorted[i]*(height/unsorted.length));
       }
     }
   </script>
 </body>
-</html>
