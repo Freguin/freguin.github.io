@@ -1,5 +1,3 @@
-<html><head>
-		<meta charset="UTF-8">
 <body style="background-size:cover;left: 0;position: relative;margin: 0;overflow: hidden;">
   <canvas id="canvas" width="500" height="500" tabindex="1"></canvas>
   <script>
@@ -11,10 +9,10 @@
     halfH = height / 2;
     subtraction = 0;
     unsorted = [1];
-    skips = 10000;
+    skips = 10;
+    end_sorted = 0;
     list_size = 5000;
-    up = true;
-    var quux;
+
     function getRandomIntInclusive(min, max) {
 	  min = Math.ceil(min);
 	  max = Math.floor(max);
@@ -24,8 +22,6 @@
 	index = getRandomIntInclusive(0,unsorted.length);
         unsorted.splice(index, 0, j);
     }
-    upTo = unsorted.length-1;
-    downTo = -1;
     window.onload = function() {
       document.getElementById('canvas').width = width;
       document.getElementById('canvas').height = height;
@@ -35,43 +31,30 @@
     function update() {
       c.fillStyle = 'rgba(255,255,255,1)';
       c.fillRect(0, 0, width, height);
-      for(i=0;i<=skips;i++){
-      if(iterate===downTo && up === false){
-      	iterate++;
-	downTo = quux;
-	up = true;
-      }
-      else if(iterate===upTo && up === true){
-      	iterate--;
-      	upTo = quux;
-	up = false;
-      }
-	    
-      if(unsorted[iterate] > unsorted[iterate+1]){
-      	foo = unsorted[iterate];
-        unsorted[iterate] = unsorted[iterate+1];
-        unsorted[iterate+1] = foo;
-	quux = iterate;
-      }
-      if(up === true){
-	  iterate++;
-      } else {
-          iterate--;
-      }
-      }
+      if(end_sorted<=list_size){
+        for(i=0;i<=skips;i++){
+          for(j=0;j<=end_sorted;j++){
+            var foo;
+            if(unsorted[iterate]-1<unsorted[j]){
+              foo = unsorted[iterate];
+              unsorted.splice(iterate,1);
+              unsorted.splice(j,0,foo);
+            }
+          }
+          end_sorted+=1;
+          iterate++;
+        }
+			}
       //draws rectangles
       for(i=0;i<unsorted.length;i++){
-	if(i===iterate){
-		c.fillStyle = 'rgba(255, 80, 80, 1)';
-	}
-	else if(i===iterate+1){
-		c.fillStyle = 'rgba(0, 204, 255, 1)';
-	}
-	else {
-		c.fillStyle = 'rgba(0,0,0,1)';
-	}
-      	c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length,unsorted[i]*(height/unsorted.length));
-      }
+        if(i===iterate){
+          c.fillStyle = 'rgba(255, 80, 80, 1)';
+        }
+        else {
+          c.fillStyle = 'rgba(0,0,0,1)';
+        }
+        c.fillRect(i*(width/unsorted.length),height-unsorted[i]*(height/unsorted.length),width/unsorted.length,unsorted[i]*(height/unsorted.length));
+            }
     }
   </script>
 </body>
